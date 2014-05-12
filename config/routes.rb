@@ -1,6 +1,10 @@
 Addisfarmmarket::Application.routes.draw do
   
   
+  resources :eggs do
+    resources :egg_orders
+  end
+
   devise_for :users, :path_names => { :sign_up => "registeration"}
   root :to => 'front_page#welcome'
   # The priority is based upon order of creation: first created -> highest priority.

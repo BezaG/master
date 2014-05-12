@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: MyString
+  company: MyString
+  tel: MyString
+  location: MyString
+  type: 
+  daily_quantity: 1
+  per_: MyString
+  price: 9.99
+  reciept: MyString
+
+two:
+  user: MyString
+  company: MyString
+  tel: MyString
+  location: MyString
+  type: 
+  daily_quantity: 1
+  per_: MyString
+  price: 9.99
+  reciept: MyString

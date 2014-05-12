@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: MyString
+  company: MyString
+  tel: MyString
+  location: MyString
+  per_: MyString
+  price: 9.99
+  daily_quantity: 1
+
+two:
+  user: MyString
+  company: MyString
+  tel: MyString
+  location: MyString
+  per_: MyString
+  price: 9.99
+  daily_quantity: 1

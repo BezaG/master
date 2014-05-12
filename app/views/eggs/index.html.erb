@@ -1,0 +1,43 @@
+<h1>Listing eggs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Company</th>
+      <th>Tel</th>
+      <th>Location</th>
+      <th>Type</th>
+      <th>Daily quantity</th>
+      <th>Per </th>
+      <th>Price</th>
+      <th>Reciept</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @eggs.each do |egg| %>
+      <tr>
+        <td><%= egg.user %></td>
+        <td><%= egg.company %></td>
+        <td><%= egg.tel %></td>
+        <td><%= egg.location %></td>
+        <td><%= egg.type %></td>
+        <td><%= egg.daily_quantity %></td>
+        <td><%= egg.per_ %></td>
+        <td><%= egg.price %></td>
+        <td><%= egg.reciept %></td>
+        <td><%= link_to 'Show', egg %></td>
+        <td><%= link_to 'Edit', edit_egg_path(egg) %></td>
+        <td><%= link_to 'Destroy', egg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Egg', new_egg_path %>

@@ -365,3 +365,15 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-11 13:32:07 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-11 13:32:07 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEggs (20140512111623)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512111623"]]
+  [1m[36m (206.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEggOrders (20140512112137)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "egg_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "price" decimal, "daily_quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512112137"]]
+  [1m[36m (228.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
