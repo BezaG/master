@@ -1,10 +1,10 @@
 class EggOrder < ActiveRecord::Base
-  validates :user, :presence => true
-  validates :tel, :presence => true
-  validates :company, :presence => true
-  validates :location, :presence => true
-  validates :daily_quantity, :presence => true
-  validates :price, :presence => true
+  validates_presence_of :user, :message => "can't be blank"
+  validates_presence_of :tel, :message => "can't be blank"
+  validates_presence_of :company, :message => "can't be blank"
+  validates_presence_of :location, :message => "can't be blank"
+  validates_presence_of :daily_quantity, :message => "can't be blank"
+  validates_presence_of :price, :message => "can't be blank"
   
   belongs_to :egg
 end

@@ -377,3 +377,525 @@ Migrating to CreateEggOrders (20140512112137)
   [1m[35mSQL (3.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512112137"]]
   [1m[36m (228.7ms)[0m  [1mcommit transaction[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-12 15:47:04 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FrontPageController#welcome as HTML
+  Rendered front_page/welcome.html within layouts/application (53.9ms)
+Completed 500 Internal Server Error in 228ms
+
+ActionView::Template::Error (No route matches {:controller=>"eggs", :action=>"show"} missing required keys: [:id]):
+     8:       <%= link_to 'Sign Up', new_user_registration_path, :class => 'btn btn-success' %>
+     9:   <% end %>
+    10: </br>
+    11:  <%= link_to 'Egg', egg_path, :class => 'btn btn-default' %>
+  app/views/front_page/welcome.html:11:in `_app_views_front_page_welcome_html__560671092_97213010'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (79.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-12 15:50:15 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FrontPageController#welcome as HTML
+  Rendered front_page/welcome.html within layouts/application (26.2ms)
+Completed 200 OK in 2541ms (Views: 2480.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-12 15:50:18 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-12 15:50:19 +0300
+
+
+Started GET "/eggs" for 127.0.0.1 at 2014-05-12 15:50:32 +0300
+Processing by EggsController#index as HTML
+Completed 500 Internal Server Error in 15ms
+
+NameError (uninitialized constant ActiveRecord::Bases):
+  app/models/egg.rb:1:in `<top (required)>'
+  app/controllers/eggs_controller.rb:7:in `index'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (59.0ms)
+
+
+Started GET "/eggs" for 127.0.0.1 at 2014-05-12 15:50:32 +0300
+Processing by EggsController#index as HTML
+Completed 500 Internal Server Error in 15ms
+
+NameError (uninitialized constant ActiveRecord::Bases):
+  app/models/egg.rb:1:in `<top (required)>'
+  app/controllers/eggs_controller.rb:7:in `index'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (94.6ms)
+
+
+Started GET "/eggs" for 127.0.0.1 at 2014-05-12 17:56:24 +0300
+Processing by EggsController#index as HTML
+  [1m[35mEgg Load (6.6ms)[0m  SELECT "eggs".* FROM "eggs"
+  Rendered eggs/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 117ms (Views: 51.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-12 17:56:25 +0300
+
+
+Started GET "/eggs/new" for 127.0.0.1 at 2014-05-12 17:56:32 +0300
+Processing by EggsController#new as HTML
+  Rendered eggs/_form.html.erb (381.3ms)
+  Rendered eggs/new.html.erb within layouts/application (444.6ms)
+Completed 500 Internal Server Error in 472ms
+
+ActionView::Template::Error (undefined method `per_' for #<Egg:0xb67c1814>):
+    37:   </div>
+    38:   <div class="field">
+    39:     <%= f.label :per_ %><br>
+    40:     <%= f.text_field :per_ %>
+    41:   </div>
+    42:   <div class="field">
+    43:     <%= f.label :price %><br>
+  app/views/eggs/_form.html.erb:40:in `block in _app_views_eggs__form_html_erb__831898835__616650098'
+  app/views/eggs/_form.html.erb:1:in `_app_views_eggs__form_html_erb__831898835__616650098'
+  app/views/eggs/new.html.erb:3:in `_app_views_eggs_new_html_erb___921616049__616683708'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (72.0ms)
+
+
+Started GET "/eggs/new" for 127.0.0.1 at 2014-05-12 17:56:33 +0300
+Processing by EggsController#new as HTML
+  Rendered eggs/_form.html.erb (42.9ms)
+  Rendered eggs/new.html.erb within layouts/application (57.2ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (undefined method `per_' for #<Egg:0xa7bbbdc>):
+    37:   </div>
+    38:   <div class="field">
+    39:     <%= f.label :per_ %><br>
+    40:     <%= f.text_field :per_ %>
+    41:   </div>
+    42:   <div class="field">
+    43:     <%= f.label :price %><br>
+  app/views/eggs/_form.html.erb:40:in `block in _app_views_eggs__form_html_erb__831898835_87989830'
+  app/views/eggs/_form.html.erb:1:in `_app_views_eggs__form_html_erb__831898835_87989830'
+  app/views/eggs/new.html.erb:3:in `_app_views_eggs_new_html_erb___921616049_87935260'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (6.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (65.4ms)
+
+
+Started GET "/eggs/new" for 127.0.0.1 at 2014-05-12 17:57:27 +0300
+Processing by EggsController#new as HTML
+  Rendered eggs/_form.html.erb (33.6ms)
+  Rendered eggs/new.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 112ms (Views: 110.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-12 17:57:28 +0300
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 17:58:15 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"ferenj", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 3ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: ferenj is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (103.8ms)
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 17:59:51 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"getachew", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 4ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: getachew is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (177.3ms)
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 18:03:44 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"getachew", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 22ms
+
+NoMethodError (undefined method `stringify_keys' for :egg_params:Symbol):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (70.1ms)
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 18:03:56 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"getachew", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `stringify_keys' for :egg_params:Symbol):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (85.8ms)
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 18:04:16 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"getachew", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 22ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: getachew is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (96.0ms)
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 18:12:28 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered eggs/_form.html.erb (18.9ms)
+  Rendered eggs/new.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 295ms (Views: 33.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-12 18:12:29 +0300
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 18:12:47 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"my", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: my is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (101.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-12 18:54:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (5.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-12 18:54:53 +0300
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 18:54:58 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"my", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 121ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: my is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (11.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (93.6ms)
+  [1m[36m (304.9ms)[0m  [1mCREATE TABLE "egg_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "price" decimal, "daily_quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (240.9ms)[0m  CREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (232.8ms)[0m  [1mCREATE TABLE "installs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (174.5ms)[0m  CREATE UNIQUE INDEX "index_installs_on_email" ON "installs" ("email")
+  [1m[36m (152.3ms)[0m  [1mCREATE UNIQUE INDEX "index_installs_on_reset_password_token" ON "installs" ("reset_password_token")[0m
+  [1m[35m (106.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "company_name" varchar(255) DEFAULT '' NOT NULL, "user_name" varchar(255) DEFAULT '' NOT NULL, "tel" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "role" varchar(255) DEFAULT '' NOT NULL) 
+  [1m[36m (155.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (245.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (213.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (209.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (1.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (196.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140512112137')
+  [1m[36m (210.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140510142338')[0m
+  [1m[35m (221.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140510132918')
+  [1m[36m (189.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140512111623')[0m
+  [1m[35m (299.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140510134113')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/eggs" for 127.0.0.1 at 2014-05-12 18:57:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EggsController#index as HTML
+  [1m[35mEgg Load (0.6ms)[0m  SELECT "eggs".* FROM "eggs"
+  Rendered eggs/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 397ms (Views: 322.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/eggs/new" for 127.0.0.1 at 2014-05-12 18:57:43 +0300
+Processing by EggsController#new as HTML
+  Rendered eggs/_form.html.erb (229.7ms)
+  Rendered eggs/new.html.erb within layouts/application (253.2ms)
+Completed 200 OK in 280ms (Views: 277.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 18:58:37 +0300
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"ferenj", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 3ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: ferenj is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (88.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 19:01:09 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"ferenj", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 104ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: ferenj is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (16.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (115.4ms)
+  [1m[36m (598.9ms)[0m  [1mCREATE TABLE "egg_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "price" decimal, "daily_quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (197.9ms)[0m  CREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (214.4ms)[0m  [1mCREATE TABLE "installs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (197.6ms)[0m  CREATE UNIQUE INDEX "index_installs_on_email" ON "installs" ("email")
+  [1m[36m (118.9ms)[0m  [1mCREATE UNIQUE INDEX "index_installs_on_reset_password_token" ON "installs" ("reset_password_token")[0m
+  [1m[35m (207.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "company_name" varchar(255) DEFAULT '' NOT NULL, "user_name" varchar(255) DEFAULT '' NOT NULL, "tel" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "role" varchar(255) DEFAULT '' NOT NULL) 
+  [1m[36m (209.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (231.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (268.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (244.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (195.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140512112137')
+  [1m[36m (243.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140510142338')[0m
+  [1m[35m (189.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140510132918')
+  [1m[36m (175.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140512111623')[0m
+  [1m[35m (177.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140510134113')
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 19:04:24 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"ferenj", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 96ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: ferenj is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (17.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (108.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (4.9ms)[0m  [1mCREATE TEMPORARY TABLE "aeggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.5ms)[0m  SELECT * FROM "eggs"
+  [1m[36m (2.9ms)[0m  [1mDROP TABLE "eggs"[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "aeggs"[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "aeggs"
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140512175505"]]
+  [1m[35m (202.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/eggs" for 127.0.0.1 at 2014-05-12 21:08:28 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EggsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qx580VyonsACMt6SajAbkaUu0APgy7LAVe7/kFo82fE=", "egg"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"bole", "type"=>"ferenj", "daily_quantity"=>"50", "price"=>"2.25", "reciept"=>"vat"}, "commit"=>"Create Egg"}
+Completed 500 Internal Server Error in 105ms
+
+ActiveRecord::SubclassNotFound (Invalid single-table inheritance type: ferenj is not a subclass of Egg):
+  app/controllers/eggs_controller.rb:27:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (11.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (75.6ms)
