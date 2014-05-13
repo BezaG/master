@@ -25,5 +25,5 @@
   <%= @honey_order.price %>
 </p>
 
-<%= link_to 'Edit', edit_honey_order_path(@honey_order) %> |
-<%= link_to 'Back', honey_orders_path %>
+<%= link_to 'Edit', edit_honey_honey_order_path(@honey_order.honey, @honey_order) %> |
+<%= link_to 'Back', honey_honey_orders_path(@honey_order.honey) %>

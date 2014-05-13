@@ -1,7 +1,7 @@
-<%= form_for(@honey_order) do |f| %>
+<%= form_for([@honey_order.honey, @honey_order]) do |f| %>
   <% if @honey_order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@honey_order.errors.count, "error") %> prohibited this honey_order from being saved:</h2>
+      <h2><%= pluralize(@honey_order.errors.count, "error") %> prohibited this honey order from being saved:</h2>
 
       <ul>
       <% @honey_order.errors.full_messages.each do |msg| %>

@@ -69,6 +69,6 @@ class HoneysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def honey_params
-      params.require(:honey).permit(:user, :company, :tel, :honey_type, :amount, :price, :condition, :reciept)
+      params.require(:honey).permit(:user, :company, :tel, :honey_type, :location, :amount, :price, :condition, :reciept)
     end
 end
