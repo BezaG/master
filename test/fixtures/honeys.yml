@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: MyString
+  company: MyString
+  tel: MyString
+  honey_type: MyString
+  amount: 1
+  price: 9.99
+  condition: MyString
+  reciept: MyString
+
+two:
+  user: MyString
+  company: MyString
+  tel: MyString
+  honey_type: MyString
+  amount: 1
+  price: 9.99
+  condition: MyString
+  reciept: MyString

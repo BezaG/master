@@ -5648,3 +5648,207 @@ Processing by EggsController#index as HTML
   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "egg_orders" WHERE "egg_orders"."egg_id" = ?[0m  [["egg_id", 1]]
   Rendered eggs/index.html.erb within layouts/application (24.0ms)
 Completed 200 OK in 71ms (Views: 62.3ms | ActiveRecord: 7.9ms)
+  [1m[36m (271.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (231.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateInstalls (20140510132918)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "installs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_installs_on_email" ON "installs" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_installs_on_reset_password_token" ON "installs" ("reset_password_token")[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510132918"]]
+  [1m[36m (172.2ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20140510134113)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (11.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "company_name" varchar(255) DEFAULT '' NOT NULL, "user_name" varchar(255) DEFAULT '' NOT NULL, "tel" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510134113"]]
+  [1m[36m (176.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddDeviseToUsers (20140510142338)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (4.6ms)[0m  [1mALTER TABLE "users" ADD "role" varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510142338"]]
+  [1m[36m (164.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEggs (20140512111623)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (9.8ms)[0m  [1mCREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (9.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512111623"]]
+  [1m[36m (201.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEggOrders (20140512112137)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "egg_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "price" decimal, "daily_quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (5.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512112137"]]
+  [1m[36m (215.8ms)[0m  [1mcommit transaction[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (7.5ms)[0m  [1mCREATE TEMPORARY TABLE "aeggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "eggs"
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "eggs"[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "aeggs"[0m
+  [1m[35m (0.8ms)[0m  DROP TABLE "aeggs"
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140512175505"]]
+  [1m[35m (164.9ms)[0m  commit transaction
+Migrating to AddEggIdColumnToEggOrders (20140513113539)
+  [1m[36m (6.8ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "egg_orders" ADD "egg_id" integer
+  [1m[36mSQL (6.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513113539"]]
+  [1m[35m (171.1ms)[0m  commit transaction
+Migrating to CreateHoneys (20140513134644)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "honeys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "honey_type" varchar(255), "amount" integer, "price" decimal, "condition" varchar(255), "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513134644"]]
+  [1m[35m (211.0ms)[0m  commit transaction
+Migrating to CreateHoneyOrders (20140513134903)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "honey_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "amount" integer, "price" decimal, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513134903"]]
+  [1m[35m (218.2ms)[0m  commit transaction
+Migrating to AddHoneyIdColumnToHoneyOrders (20140513135127)
+  [1m[36m (3.7ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  ALTER TABLE "honey_orders" ADD "honey_id" integer
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513135127"]]
+  [1m[35m (198.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (225.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (288.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateInstalls (20140510132918)
+  [1m[35m (1.6ms)[0m  begin transaction
+  [1m[36m (11.5ms)[0m  [1mCREATE TABLE "installs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_installs_on_email" ON "installs" ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "index_installs_on_reset_password_token" ON "installs" ("reset_password_token")[0m
+  [1m[35mSQL (9.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510132918"]]
+  [1m[36m (198.4ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20140510134113)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (10.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "company_name" varchar(255) DEFAULT '' NOT NULL, "user_name" varchar(255) DEFAULT '' NOT NULL, "tel" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510134113"]]
+  [1m[36m (203.3ms)[0m  [1mcommit transaction[0m
+Migrating to AddDeviseToUsers (20140510142338)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (6.2ms)[0m  [1mALTER TABLE "users" ADD "role" varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510142338"]]
+  [1m[36m (251.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEggs (20140512111623)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512111623"]]
+  [1m[36m (117.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEggOrders (20140512112137)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "egg_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "price" decimal, "daily_quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512112137"]]
+  [1m[36m (142.3ms)[0m  [1mcommit transaction[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (6.9ms)[0m  [1mCREATE TEMPORARY TABLE "aeggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.8ms)[0m  SELECT * FROM "eggs"
+  [1m[36m (0.9ms)[0m  [1mDROP TABLE "eggs"[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "aeggs"[0m
+  [1m[35m (0.7ms)[0m  DROP TABLE "aeggs"
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140512175505"]]
+  [1m[35m (184.3ms)[0m  commit transaction
+Migrating to AddEggIdColumnToEggOrders (20140513113539)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "egg_orders" ADD "egg_id" integer
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513113539"]]
+  [1m[35m (276.3ms)[0m  commit transaction
+Migrating to CreateHoneys (20140513134644)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.9ms)[0m  CREATE TABLE "honeys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "honey_type" varchar(255), "amount" integer, "price" decimal, "condition" varchar(255), "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513134644"]]
+  [1m[35m (186.4ms)[0m  commit transaction
+Migrating to CreateHoneyOrders (20140513134903)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (6.9ms)[0m  CREATE TABLE "honey_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "amount" integer, "price" decimal, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513134903"]]
+  [1m[35m (136.5ms)[0m  commit transaction
+Migrating to AddHoneyIdColumnToHoneyOrders (20140513135127)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "honey_orders" ADD "honey_id" integer
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513135127"]]
+  [1m[35m (205.8ms)[0m  commit transaction
+Migrating to AddLocationColumnToHoney (20140513135900)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.3ms)[0m  ALTER TABLE "honeys" ADD "location" varchar(255)
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513135900"]]
+  [1m[35m (239.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (220.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (274.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateInstalls (20140510132918)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "installs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_installs_on_email" ON "installs" ("email")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_installs_on_reset_password_token" ON "installs" ("reset_password_token")[0m
+  [1m[35mSQL (10.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510132918"]]
+  [1m[36m (200.1ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20140510134113)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "company_name" varchar(255) DEFAULT '' NOT NULL, "user_name" varchar(255) DEFAULT '' NOT NULL, "tel" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510134113"]]
+  [1m[36m (220.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddDeviseToUsers (20140510142338)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "users" ADD "role" varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140510142338"]]
+  [1m[36m (205.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEggs (20140512111623)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512111623"]]
+  [1m[36m (224.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEggOrders (20140512112137)
+  [1m[35m (2.8ms)[0m  begin transaction
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "egg_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "price" decimal, "daily_quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140512112137"]]
+  [1m[36m (261.8ms)[0m  [1mcommit transaction[0m
+Migrating to FixColumnName (20140512175505)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (9.6ms)[0m  [1mCREATE TEMPORARY TABLE "aeggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.5ms)[0m  SELECT * FROM "eggs"
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "eggs"[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "eggs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "location" varchar(255), "type_of_egg" varchar(255), "daily_quantity" integer, "price" decimal, "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "aeggs"[0m
+  [1m[35m (0.7ms)[0m  DROP TABLE "aeggs"
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140512175505"]]
+  [1m[35m (209.8ms)[0m  commit transaction
+Migrating to AddEggIdColumnToEggOrders (20140513113539)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "egg_orders" ADD "egg_id" integer
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513113539"]]
+  [1m[35m (243.0ms)[0m  commit transaction
+Migrating to CreateHoneys (20140513134644)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.3ms)[0m  CREATE TABLE "honeys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "honey_type" varchar(255), "amount" integer, "price" decimal, "condition" varchar(255), "reciept" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513134644"]]
+  [1m[35m (180.8ms)[0m  commit transaction
+Migrating to CreateHoneyOrders (20140513134903)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (7.3ms)[0m  CREATE TABLE "honey_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "company" varchar(255), "tel" varchar(255), "amount" integer, "price" decimal, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513134903"]]
+  [1m[35m (208.2ms)[0m  commit transaction
+Migrating to AddHoneyIdColumnToHoneyOrders (20140513135127)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "honey_orders" ADD "honey_id" integer
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513135127"]]
+  [1m[35m (203.5ms)[0m  commit transaction
+Migrating to AddLocationColumnToHoney (20140513135900)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "honeys" ADD "location" varchar(255)
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513135900"]]
+  [1m[35m (146.1ms)[0m  commit transaction
+Migrating to AddLocationColumnToHoneyOrders (20140513140212)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  ALTER TABLE "honey_orders" ADD "location" varchar(255)
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140513140212"]]
+  [1m[35m (215.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

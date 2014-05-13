@@ -1,10 +1,10 @@
-<%= form_for(@egg) do |f| %>
-  <% if @egg.errors.any? %>
+<%= form_for(@honey) do |f| %>
+  <% if @honey.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@egg.errors.count, "error") %> prohibited this egg from being saved:</h2>
+      <h2><%= pluralize(@honey.errors.count, "error") %> prohibited this honey from being saved:</h2>
 
       <ul>
-      <% @egg.errors.full_messages.each do |msg| %>
+      <% @honey.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -26,17 +26,19 @@
   <div class="field">
     <%= f.select :location, options_for_select(%w[Bole Yeka kirkos]) %>
   </div>
-  <div class="field">
-    <%= f.select :egg_type, options_for_select(%w[Habesha Ferenj]) %>
+ <div class="field">
+    <%= f.select :honey_type, options_for_select(%w[Cultural_Injera White_Welela Red_Welela]) %>
   </div>
   <div class="field">
-    <%= f.label :daily_quantity %><br>
-    <%= f.number_field :daily_quantity %>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
   </div>
- 
   <div class="field">
     <%= f.label :price %><br>
     <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.select :condition, options_for_select(%w[Packed Unpacked]) %>
   </div>
   <div class="field">
     <%= f.select :reciept, options_for_select(%w[VAT TOT None]) %>

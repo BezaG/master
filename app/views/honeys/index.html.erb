@@ -1,0 +1,42 @@
+<h1>Listing honeys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Company</th>
+      <th>Tel</th>
+      <th>Honey type</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Condition</th>
+      <th>Reciept</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @honeys.each do |honey| %>
+      <tr>
+        <td><%= honey.user %></td>
+        <td><%= honey.company %></td>
+        <td><%= honey.tel %></td>
+        <td><%= honey.honey_type %></td>
+        <td><%= honey.amount %></td>
+        <td><%= honey.price %></td>
+        <td><%= honey.condition %></td>
+        <td><%= honey.reciept %></td>
+        <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
+        <td><%= link_to 'Show', honey %></td>
+        <td><%= link_to 'Edit', edit_honey_path(honey) %></td>
+        <td><%= link_to 'Destroy', honey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Honey', new_honey_path %>

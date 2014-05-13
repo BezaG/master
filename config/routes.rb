@@ -1,6 +1,12 @@
 Addisfarmmarket::Application.routes.draw do
   
   
+  
+  resources :honeys do
+    resources :honey_orders
+  end
+
+
   resources :eggs do
     resources :egg_orders
   end
