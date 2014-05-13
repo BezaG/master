@@ -25,8 +25,7 @@
     <%= f.text_field :tel %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.select :location, options_for_select(%w[Bole Yeka kirkos]) %>
   </div>
 
   <div class="field">

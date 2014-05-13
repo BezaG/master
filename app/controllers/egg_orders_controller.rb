@@ -22,6 +22,7 @@ class EggOrdersController < ApplicationController
     egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
     @eggorder = egg.egg_order.find(params[:id])
+    @eggs = Egg.find(:all)
  
     respond_to do |format|
       format.html # show.html.erb
