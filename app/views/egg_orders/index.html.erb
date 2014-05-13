@@ -17,13 +17,12 @@
   </thead>
 
   <tbody>
-    <% @egg_orders.each do |egg_order| %>
+    <% @eggorders.each do |egg_order| %>
       <tr>
         <td><%= egg_order.user %></td>
         <td><%= egg_order.company %></td>
         <td><%= egg_order.tel %></td>
         <td><%= egg_order.location %></td>
-        <td><%= egg_order.per_ %></td>
         <td><%= egg_order.price %></td>
         <td><%= egg_order.daily_quantity %></td>
         <td><%= link_to 'Show', [egg_order.egg, egg_order] %></td>
@@ -35,5 +34,5 @@
 </table>
 
 <br>
-
+<%= link_to 'Back', eggs_path %>
 <%= link_to 'New Egg order', new_egg_egg_order_path %>

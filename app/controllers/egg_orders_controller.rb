@@ -7,7 +7,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     egg = Egg.find(params[:egg_id])
     #2nd you get all the comments of this post
-    @eggorders = egg.eggorders
+    @eggorders = egg.egg_order 
  
     respond_to do |format|
       format.html # index.html.erb
@@ -21,7 +21,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.eggorders.find(params[:id])
+    @eggorder = egg.egg_order.find(params[:id])
  
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +35,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     egg = Egg.find(params[:egg_id])
     #2nd you build a new one
-    @eggorder = egg.eggorders.build
+    @eggorder = egg.egg_order.build
  
     respond_to do |format|
       format.html # new.html.erb
@@ -48,7 +48,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.eggorders.find(params[:id])
+    @eggorder = egg.egg_order.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
@@ -57,7 +57,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     egg = Egg.find(params[:egg_id])
     #2nd you create the comment with arguments in params[:comment]
-    @eggorder = egg.eggorders.create(params[:eggorder])
+    @eggorder = egg.egg_order.create(egg_order_params)
  
     respond_to do |format|
       if @eggorder.save
@@ -78,7 +78,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.eggorders.find(params[:id])
+    @eggorder = egg.egg_order.find(params[:id])
  
     respond_to do |format|
       if @eggorder.update_attributes(params[:eggorder])
@@ -98,7 +98,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.eggorders.find(params[:id])
+    @eggorder = egg.egg_order.find(params[:id])
     @eggorder.destroy
  
     respond_to do |format|
@@ -107,7 +107,7 @@ class EggOrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -117,6 +117,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def egg_order_params
-      params.require(:egg_order).permit(:user, :company, :tel, :location, :per_, :price, :daily_quantity)
+      params.require(:egg_order).permit(:user, :company, :tel, :location, :price, :daily_quantity)
     end
-end
+  end
+

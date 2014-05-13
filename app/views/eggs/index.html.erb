@@ -9,7 +9,6 @@
       <th>Location</th>
       <th>Type</th>
       <th>Daily quantity</th>
-      <th>Per </th>
       <th>Price</th>
       <th>Reciept</th>
       <th></th>
@@ -25,11 +24,11 @@
         <td><%= egg.company %></td>
         <td><%= egg.tel %></td>
         <td><%= egg.location %></td>
-        <td><%= egg.type %></td>
+        <td><%= egg.type_of_egg %></td>
         <td><%= egg.daily_quantity %></td>
-        <td><%= egg.per_ %></td>
         <td><%= egg.price %></td>
         <td><%= egg.reciept %></td>
+        <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_order.count}#{"Orders"} ")  %></td>
         <td><%= link_to 'Show', egg %></td>
         <td><%= link_to 'Edit', edit_egg_path(egg) %></td>
         <td><%= link_to 'Destroy', egg, method: :delete, data: { confirm: 'Are you sure?' } %></td>

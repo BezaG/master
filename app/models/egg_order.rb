@@ -7,4 +7,5 @@ class EggOrder < ActiveRecord::Base
   validates_presence_of :price, :message => "can't be blank"
   
   belongs_to :egg
+
 end

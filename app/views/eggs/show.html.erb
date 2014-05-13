@@ -22,7 +22,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @egg.type %>
+  <%= @egg.type_of_egg %>
 </p>
 
 <p>
@@ -30,10 +30,6 @@
   <%= @egg.daily_quantity %>
 </p>
 
-<p>
-  <strong>Per :</strong>
-  <%= @egg.per_ %>
-</p>
 
 <p>
   <strong>Price:</strong>
@@ -45,6 +41,6 @@
   <%= @egg.reciept %>
 </p>
 <!-- /eggs/:egg_id/eggorders/ -->
-<%= link_to 'Orders', egg_eggorders_path(@egg) %>
+<%= link_to 'Orders', egg_egg_orders_path(@egg) %>
 <%= link_to 'Edit', edit_egg_path(@egg) %> |
 <%= link_to 'Back', eggs_path %>
