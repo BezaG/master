@@ -58,17 +58,21 @@ class HoneyOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     honey = Honey.find(params[:honey_id])
     #2nd you create the comment with arguments in params[:comment]
-    @Honeyorder = honey.honey_order.create(honey_order_params)
- 
+    @honey_order = honey.honey_order.create(honey_order_params)
+    
+    @honey_order.user = current_user.user_name
+    @honey_order.company = current_user.company_name
+    @honey_order.tel = current_user.tel
+
     respond_to do |format|
-      if @Honeyorder.save
+      if @honey_order.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@Honeyorder.honey, @Honeyorder], :notice => 'An Honey order was successfully created.') }
+        format.html { redirect_to([@honey_order.honey, @Honeyorder], :notice => 'An Honey order was successfully created.') }
         #the key :location is associated to an array in order to build the correct route to the nested resource comment
-        format.xml  { render :xml => @Honeyorder, :status => :created, :location => [@Honeyorder.honey, @Honeyorder] }
+        format.xml  { render :xml => @honey_order, :status => :created, :location => [@Honeyorder.honey, @Honeyorder] }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @Honeyorder.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @honey_order.errors, :status => :unprocessable_entity }
       end
     end
   end

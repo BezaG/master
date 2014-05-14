@@ -8323,3 +8323,1757 @@ Processing by HoneyOrdersController#index as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
   Rendered honey_orders/index.html.erb within layouts/application (62.9ms)
 Completed 200 OK in 146ms (Views: 129.0ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-14 10:40:15 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FrontPageController#welcome as HTML
+  Rendered front_page/welcome.html within layouts/application (44.8ms)
+Completed 200 OK in 835ms (Views: 730.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 10:40:17 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 10:40:17 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 10:40:17 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 10:40:17 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 10:40:17 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 10:40:17 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:17 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:18 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:18 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:18 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:18 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:18 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:18 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 10:40:18 +0300
+
+
+Started GET "/honeys" for 127.0.0.1 at 2014-05-14 10:40:24 +0300
+Processing by HoneysController#index as HTML
+  [1m[35mHoney Load (0.8ms)[0m  SELECT "honeys".* FROM "honeys"
+  Rendered honeys/index.html.erb within layouts/application (506.9ms)
+Completed 500 Internal Server Error in 610ms
+
+ActionView::Template::Error (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected keyword_in
+  validates_numericality_of :amount, in =>1..:honey_order.honey.amount
+                                       ^):
+    28:         <td><%= honey.price %></td>
+    29:         <td><%= honey.condition %></td>
+    30:         <td><%= honey.reciept %></td>
+    31:         <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
+    32:         <td><%= link_to 'Show', honey %></td>
+    33:         <td><%= link_to 'Edit', edit_honey_path(honey) %></td>
+    34:         <td><%= link_to 'Destroy', honey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/honeys/index.html.erb:31:in `block in _app_views_honeys_index_html_erb__93034121_94343540'
+  app/views/honeys/index.html.erb:21:in `_app_views_honeys_index_html_erb__93034121_94343540'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (138.7ms)
+
+
+Started GET "/honeys" for 127.0.0.1 at 2014-05-14 10:40:25 +0300
+Processing by HoneysController#index as HTML
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys"[0m
+  Rendered honeys/index.html.erb within layouts/application (37.0ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected keyword_in
+  validates_numericality_of :amount, in =>1..:honey_order.honey.amount
+                                       ^):
+    28:         <td><%= honey.price %></td>
+    29:         <td><%= honey.condition %></td>
+    30:         <td><%= honey.reciept %></td>
+    31:         <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
+    32:         <td><%= link_to 'Show', honey %></td>
+    33:         <td><%= link_to 'Edit', edit_honey_path(honey) %></td>
+    34:         <td><%= link_to 'Destroy', honey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/honeys/index.html.erb:31:in `block in _app_views_honeys_index_html_erb__93034121__624411388'
+  app/views/honeys/index.html.erb:21:in `_app_views_honeys_index_html_erb__93034121__624411388'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (133.7ms)
+
+
+Started GET "/honeys" for 127.0.0.1 at 2014-05-14 10:41:21 +0300
+Processing by HoneysController#index as HTML
+  [1m[35mHoney Load (0.8ms)[0m  SELECT "honeys".* FROM "honeys"
+  Rendered honeys/index.html.erb within layouts/application (146.0ms)
+Completed 500 Internal Server Error in 182ms
+
+ActionView::Template::Error (undefined method `honey' for :honey_order:Symbol):
+    28:         <td><%= honey.price %></td>
+    29:         <td><%= honey.condition %></td>
+    30:         <td><%= honey.reciept %></td>
+    31:         <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
+    32:         <td><%= link_to 'Show', honey %></td>
+    33:         <td><%= link_to 'Edit', edit_honey_path(honey) %></td>
+    34:         <td><%= link_to 'Destroy', honey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/models/honey_order.rb:7:in `<class:HoneyOrder>'
+  app/models/honey_order.rb:1:in `<top (required)>'
+  app/views/honeys/index.html.erb:31:in `block in _app_views_honeys_index_html_erb__93034121__624411388'
+  app/views/honeys/index.html.erb:21:in `_app_views_honeys_index_html_erb__93034121__624411388'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (79.5ms)
+
+
+Started GET "/honeys" for 127.0.0.1 at 2014-05-14 10:43:07 +0300
+Processing by HoneysController#index as HTML
+  [1m[36mHoney Load (9.4ms)[0m  [1mSELECT "honeys".* FROM "honeys"[0m
+  Rendered honeys/index.html.erb within layouts/application (272.3ms)
+Completed 500 Internal Server Error in 329ms
+
+ActionView::Template::Error (undefined method `honey' for :@Honeyorders:Symbol):
+    28:         <td><%= honey.price %></td>
+    29:         <td><%= honey.condition %></td>
+    30:         <td><%= honey.reciept %></td>
+    31:         <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
+    32:         <td><%= link_to 'Show', honey %></td>
+    33:         <td><%= link_to 'Edit', edit_honey_path(honey) %></td>
+    34:         <td><%= link_to 'Destroy', honey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/models/honey_order.rb:7:in `<class:HoneyOrder>'
+  app/models/honey_order.rb:1:in `<top (required)>'
+  app/views/honeys/index.html.erb:31:in `block in _app_views_honeys_index_html_erb__93034121__624411388'
+  app/views/honeys/index.html.erb:21:in `_app_views_honeys_index_html_erb__93034121__624411388'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (76.2ms)
+
+
+Started GET "/honeys" for 127.0.0.1 at 2014-05-14 10:48:48 +0300
+Processing by HoneysController#index as HTML
+  [1m[35mHoney Load (1.1ms)[0m  SELECT "honeys".* FROM "honeys"
+  [1m[36m (24.5ms)[0m  [1mSELECT COUNT(*) FROM "honey_orders" WHERE "honey_orders"."honey_id" = ?[0m  [["honey_id", 1]]
+  Rendered honeys/index.html.erb within layouts/application (250.8ms)
+Completed 200 OK in 299ms (Views: 254.9ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:49 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 10:48:50 +0300
+
+
+Started GET "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 10:48:57 +0300
+Processing by HoneyOrdersController#index as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[35mHoney Load (0.4ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mHoneyOrder Load (0.4ms)[0m  [1mSELECT "honey_orders".* FROM "honey_orders" WHERE "honey_orders"."honey_id" = ?[0m  [["honey_id", 1]]
+  [1m[35mHoney Load (1.4ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered honey_orders/index.html.erb within layouts/application (206.8ms)
+Completed 200 OK in 293ms (Views: 269.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/honeys/1/honey_orders/new" for 127.0.0.1 at 2014-05-14 10:49:04 +0300
+Processing by HoneyOrdersController#new as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[35mHoney Load (5.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mHoney Load (0.2ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (258.3ms)
+  Rendered honey_orders/new.html.erb within layouts/application (299.5ms)
+Completed 200 OK in 364ms (Views: 346.9ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 10:49:34 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"kirkos", "amount"=>"60", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  Rendered honey_orders/_form.html.erb (23.0ms)
+  Rendered honey_orders/new.html.erb within layouts/application (25.6ms)
+Completed 500 Internal Server Error in 108ms
+
+ActionView::Template::Error (undefined method `honey' for nil:NilClass):
+    1: <%= form_for([@honey_order.honey, @honey_order]) do |f| %>
+    2:   <% if @honey_order.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@honey_order.errors.count, "error") %> prohibited this honey order from being saved:</h2>
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__623144008'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:70:in `block (2 levels) in create'
+  app/controllers/honey_orders_controller.rb:63:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (22.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (101.2ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 10:55:24 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"kirkos", "amount"=>"60", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.4ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (0.6ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (75.1ms)
+  Rendered honey_orders/new.html.erb within layouts/application (87.3ms)
+Completed 200 OK in 656ms (Views: 131.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 10:55:25 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:26 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:27 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 10:55:27 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:02:49 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"kirkos", "amount"=>"60", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (0.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (33.1ms)
+  Rendered honey_orders/new.html.erb within layouts/application (36.8ms)
+Completed 500 Internal Server Error in 92ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :user %><br>
+    16:     <%= f.hidden_field :user , :value =>current_user.name%>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company %><br>
+  app/views/honey_orders/_form.html.erb:16:in `block in _app_views_honey_orders__form_html_erb__61119910__625094658'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__625094658'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:70:in `block (2 levels) in create'
+  app/controllers/honey_orders_controller.rb:63:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (117.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (183.9ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:31:00 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"kirkos", "amount"=>"60", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (2.0ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (31.9ms)
+  Rendered honey_orders/new.html.erb within layouts/application (46.0ms)
+Completed 500 Internal Server Error in 97ms
+
+ActionView::Template::Error (undefined method `user' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :user %><br>
+    16:     <%= f.hidden_field :user , :value =>current_user.user%>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company %><br>
+  app/views/honey_orders/_form.html.erb:16:in `block in _app_views_honey_orders__form_html_erb__61119910_88232620'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910_88232620'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:70:in `block (2 levels) in create'
+  app/controllers/honey_orders_controller.rb:63:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (73.1ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:31:43 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"kirkos", "amount"=>"60", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (0.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (38.3ms)
+  Rendered honey_orders/new.html.erb within layouts/application (47.1ms)
+Completed 500 Internal Server Error in 98ms
+
+ActionView::Template::Error (undefined method `user' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :user %><br>
+    16:     <%= f.hidden_field :user, :value =>current_user.user %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company %><br>
+  app/views/honey_orders/_form.html.erb:16:in `block in _app_views_honey_orders__form_html_erb__61119910_94734570'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910_94734570'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:70:in `block (2 levels) in create'
+  app/controllers/honey_orders_controller.rb:63:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (107.5ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:42:06 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"name", "company"=>"name", "tel"=>"178", "location"=>"kirkos", "amount"=>"60", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (4.7ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (30.2ms)
+  Rendered honey_orders/new.html.erb within layouts/application (44.4ms)
+Completed 500 Internal Server Error in 106ms
+
+ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :user %><br>
+    16:     <%= f.hidden_field :user, :value =>current_user.user_name %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company %><br>
+  app/views/honey_orders/_form.html.erb:16:in `block in _app_views_honey_orders__form_html_erb__61119910__624571258'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__624571258'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:70:in `block (2 levels) in create'
+  app/controllers/honey_orders_controller.rb:63:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (70.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-14 11:43:38 +0300
+Processing by FrontPageController#welcome as HTML
+  Rendered front_page/welcome.html within layouts/application (12.0ms)
+Completed 200 OK in 47ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 11:43:38 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:43:38 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 11:43:38 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 11:43:39 +0300
+
+
+Started GET "/users/registeration" for 127.0.0.1 at 2014-05-14 11:43:43 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (9.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (235.6ms)
+Completed 200 OK in 276ms (Views: 272.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-05-14 11:44:31 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "user"=>{"email"=>"b@yahoo", "company_name"=>"adming", "user_name"=>"name", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: company_name, user_name
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'b@yahoo' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered devise/shared/_links.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 533ms (Views: 56.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 11:44:32 +0300
+
+
+Started POST "/users" for 127.0.0.1 at 2014-05-14 11:45:14 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "user"=>{"email"=>"b@yahoo.com", "company_name"=>"name", "user_name"=>"name", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: company_name, user_name
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'b@yahoo.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (38.0ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 14 May 2014 08:45:14 UTC +00:00], ["email", "b@yahoo.com"], ["encrypted_password", "$2a$10$6.jIyhwbZLeyGRTOAHJMMe9DUJGgQPIjExKCcbDKQeLyhriBPON/C"], ["updated_at", Wed, 14 May 2014 08:45:14 UTC +00:00]]
+  [1m[36m (229.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `last_sign_in_ip`
+Binary data inserted for `string` type on column `current_sign_in_ip`
+  [1m[36mSQL (5.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["last_sign_in_at", Wed, 14 May 2014 08:45:14 UTC +00:00], ["current_sign_in_at", Wed, 14 May 2014 08:45:14 UTC +00:00], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", Wed, 14 May 2014 08:45:14 UTC +00:00]]
+  [1m[35m (121.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 756ms (ActiveRecord: 395.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+Processing by FrontPageController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered front_page/welcome.html within layouts/application (23.9ms)
+Completed 200 OK in 76ms (Views: 75.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:15 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:16 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:16 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:16 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 11:45:16 +0300
+
+
+Started GET "/honeys" for 127.0.0.1 at 2014-05-14 11:45:23 +0300
+Processing by HoneysController#index as HTML
+  [1m[35mHoney Load (6.4ms)[0m  SELECT "honeys".* FROM "honeys"
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "honey_orders" WHERE "honey_orders"."honey_id" = ?[0m  [["honey_id", 1]]
+  Rendered honeys/index.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 58ms (Views: 49.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:45:27 +0300
+Processing by HoneyOrdersController#index as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[35mHoney Load (0.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mHoneyOrder Load (8.4ms)[0m  [1mSELECT "honey_orders".* FROM "honey_orders" WHERE "honey_orders"."honey_id" = ?[0m  [["honey_id", 1]]
+  [1m[35mHoney Load (3.7ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered honey_orders/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 104ms (Views: 64.5ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/honeys/1/honey_orders/new" for 127.0.0.1 at 2014-05-14 11:45:41 +0300
+Processing by HoneyOrdersController#new as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mHoney Load (0.2ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered honey_orders/_form.html.erb (79.2ms)
+  Rendered honey_orders/new.html.erb within layouts/application (82.9ms)
+Completed 500 Internal Server Error in 108ms
+
+ActionView::Template::Error (undefined method `company' for #<User:0xb43df90>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company %><br>
+    20:     <%= f.hidden_field :company, :value =>current_user.company%>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :tel %><br>
+  app/views/honey_orders/_form.html.erb:20:in `block in _app_views_honey_orders__form_html_erb__61119910__624571258'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__624571258'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:41:in `new'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (84.6ms)
+
+
+Started GET "/honeys/1/honey_orders/new" for 127.0.0.1 at 2014-05-14 11:45:42 +0300
+Processing by HoneyOrdersController#new as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[36mHoney Load (0.2ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mHoney Load (0.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (6.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered honey_orders/_form.html.erb (27.9ms)
+  Rendered honey_orders/new.html.erb within layouts/application (36.2ms)
+Completed 500 Internal Server Error in 63ms
+
+ActionView::Template::Error (undefined method `company' for #<User:0xb5bcc66c>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company %><br>
+    20:     <%= f.hidden_field :company, :value =>current_user.company%>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :tel %><br>
+  app/views/honey_orders/_form.html.erb:20:in `block in _app_views_honey_orders__form_html_erb__61119910__624571258'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__624571258'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:41:in `new'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (88.6ms)
+
+
+Started GET "/honeys/1/honey_orders/new" for 127.0.0.1 at 2014-05-14 11:46:18 +0300
+Processing by HoneyOrdersController#new as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mHoney Load (0.2ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (6.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered honey_orders/_form.html.erb (29.0ms)
+  Rendered honey_orders/new.html.erb within layouts/application (42.8ms)
+Completed 500 Internal Server Error in 92ms
+
+ActionView::Template::Error (undefined method `company' for #<User:0xb5982e10>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company_name %><br>
+    20:     <%= f.hidden_field :company, :value =>current_user.company%>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :tel %><br>
+  app/views/honey_orders/_form.html.erb:20:in `block in _app_views_honey_orders__form_html_erb__61119910__624218938'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__624218938'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:41:in `new'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (6.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (83.7ms)
+
+
+Started GET "/honeys/1/honey_orders/new" for 127.0.0.1 at 2014-05-14 11:46:30 +0300
+Processing by HoneyOrdersController#new as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[36mHoney Load (0.4ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mHoney Load (0.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered honey_orders/_form.html.erb (41.5ms)
+  Rendered honey_orders/new.html.erb within layouts/application (44.5ms)
+Completed 500 Internal Server Error in 71ms
+
+ActionView::Template::Error (undefined method `company' for #<User:0xb5795878>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company_name %><br>
+    20:     <%= f.hidden_field :company, :value =>current_user.company%>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :tel %><br>
+  app/views/honey_orders/_form.html.erb:20:in `block in _app_views_honey_orders__form_html_erb__61119910__625259648'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__625259648'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:41:in `new'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (80.6ms)
+
+
+Started GET "/honeys/1/honey_orders/new" for 127.0.0.1 at 2014-05-14 11:46:40 +0300
+Processing by HoneyOrdersController#new as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[35mHoney Load (0.4ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mHoney Load (0.2ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered honey_orders/_form.html.erb (32.8ms)
+  Rendered honey_orders/new.html.erb within layouts/application (36.6ms)
+Completed 500 Internal Server Error in 67ms
+
+ActionView::Template::Error (undefined method `company' for #<User:0xb551d884>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :company_name %><br>
+    20:     <%= f.hidden_field :company, :value =>current_user.company%>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :tel %><br>
+  app/views/honey_orders/_form.html.erb:20:in `block in _app_views_honey_orders__form_html_erb__61119910__625259648'
+  app/views/honey_orders/_form.html.erb:1:in `_app_views_honey_orders__form_html_erb__61119910__625259648'
+  app/views/honey_orders/new.html.erb:3:in `_app_views_honey_orders_new_html_erb___730475616__618786828'
+  app/controllers/honey_orders_controller.rb:41:in `new'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (122.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (213.8ms)
+
+
+Started GET "/honeys/1/honey_orders/new" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+Processing by HoneyOrdersController#new as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[36mHoney Load (0.5ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mHoney Load (0.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered honey_orders/_form.html.erb (30.8ms)
+  Rendered honey_orders/new.html.erb within layouts/application (42.4ms)
+Completed 200 OK in 108ms (Views: 91.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:15 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:16 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:16 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:16 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:16 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:16 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:16 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:47:45 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"3", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mHoney Load (0.2ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered honey_orders/_form.html.erb (67.9ms)
+  Rendered honey_orders/new.html.erb within layouts/application (92.2ms)
+Completed 200 OK in 207ms (Views: 116.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:45 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 11:47:46 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:48:07 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"2", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (0.4ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered honey_orders/_form.html.erb (48.7ms)
+  Rendered honey_orders/new.html.erb within layouts/application (66.7ms)
+Completed 200 OK in 153ms (Views: 84.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:07 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:07 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:07 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:07 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:08 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 11:48:27 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"0", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mHoney Load (0.7ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered honey_orders/_form.html.erb (52.2ms)
+  Rendered honey_orders/new.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 251ms (Views: 89.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 11:48:28 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:00:32 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"0", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (8.0ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (10.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered honey_orders/_form.html.erb (501.2ms)
+  Rendered honey_orders/new.html.erb within layouts/application (504.2ms)
+Completed 200 OK in 885ms (Views: 516.9ms | ActiveRecord: 31.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:33 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:34 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:34 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 12:00:34 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:01:07 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mHoney Load (0.5ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered honey_orders/_form.html.erb (72.7ms)
+  Rendered honey_orders/new.html.erb within layouts/application (76.8ms)
+Completed 200 OK in 184ms (Views: 109.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 12:01:08 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:01:53 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 264ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '.', expecting ')'
+...unt, less_than: ->(honey_order.honey){honey_order.honey.amou...
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (14.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (134.4ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:05:47 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.9ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 195ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected keyword_self, expecting ')'
+..._of :amount, less_than: ->(self.honey){self.honey.amount}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected ')', expecting keyword_end
+...ount, less_than: ->(self.honey){self.honey.amount}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (104.5ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:08:42 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 294ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected keyword_self, expecting ')'
+..._of :amount, less_than: ->(self.honey){self.honey[:params(am...
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected ')', expecting keyword_end
+...ount, less_than: ->(self.honey){self.honey[:params(amount)}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '(', expecting ']'
+...self.honey){self.honey[:params(amount)}
+...                               ^):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (100.7ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:09:33 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 168ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected keyword_self, expecting ')'
+..._of :amount, less_than: ->(self.honey){self.honey[:params(am...
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected ')', expecting keyword_end
+...ount, less_than: ->(self.honey){self.honey[:params(amount)]}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '(', expecting ']'
+...self.honey){self.honey[:params(amount)]}
+...                               ^):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (101.8ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:09:52 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 168ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected keyword_self, expecting ')'
+..._of :amount, less_than: ->(self.honey){self.honey[:params(am...
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected ')', expecting keyword_end
+...ount, less_than: ->(self.honey){self.honey[:params(amount)]}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '(', expecting ']'
+...self.honey){self.honey[:params(amount)]}
+...                               ^):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (102.8ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:10:51 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 151ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected keyword_self, expecting ')'
+..._of :amount, less_than: ->(self.honey){self.honey(:params[am...
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected ')', expecting keyword_end
+...ount, less_than: ->(self.honey){self.honey(:params[amount])}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.1ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (98.9ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:15:13 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.7ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 197ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected =>
+...ality_of :amount, less_than: => (self.honey){self.honey.amou...
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...nt, less_than: => (self.honey){self.honey.amount}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (96.3ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:15:29 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 290ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected =>
+...ality_of :amount, less_than: => (self.honey){self.honey.amou...
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...nt, less_than: => (self.honey){self.honey.amount}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (112.5ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:39:02 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (7.9ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 175ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...an_or_equal_to => (self.honey){honey.amount}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (113.7ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:39:51 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (14.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 181ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...an_or_equal_to => (self.honey){(self.honey.amount)}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (25.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (130.1ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:40:33 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 297ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...an_or_equal_to => (self.honey){[self.honey.amount]}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (21.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (103.2ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:41:14 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 161ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...an_or_equal_to => (self.honey){[self.honey.amount]}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (111.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 12:41:21 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:41:21 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 12:41:21 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:41:21 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 12:41:21 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 12:41:21 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 12:41:21 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 12:41:22 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:41:22 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 12:41:22 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:41:22 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 12:41:22 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 12:41:22 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:41:28 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 15ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...an_or_equal_to => (self.honey){[self.honey.amount]}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (145.0ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (230.1ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:42:24 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 149ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected =>
+...ount, less_than_or_equal_to: => (honey){honey.amount}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...s_than_or_equal_to: => (honey){honey.amount}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (103.6ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:43:47 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 260ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected =>
+...ount, less_than_or_equal_to: => (honey){params:[amount]}
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...s_than_or_equal_to: => (honey){params:[amount]}
+...                               ^):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.5ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (107.8ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:45:13 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.4ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 161ms
+
+SyntaxError (/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected =>
+...ount, less_than_or_equal_to: => (honey){honey.amount }
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '{', expecting keyword_end
+...s_than_or_equal_to: => (honey){honey.amount }
+...                               ^
+/home/beza/Projects/addisfarmmarket/app/models/honey_order.rb:7: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/honey_orders_controller.rb:61:in `create'
+
+
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/beza/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (104.4ms)
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:45:59 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (36.5ms)
+  Rendered honey_orders/new.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 586ms (Views: 80.8ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:00 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:00 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:00 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:00 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:01 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:46:35 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.3ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mHoney Load (0.2ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (29.5ms)
+  Rendered honey_orders/new.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 140ms (Views: 73.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:35 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:36 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mHoney Load (11.0ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered honey_orders/_form.html.erb (38.9ms)
+  Rendered honey_orders/new.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 142ms (Views: 74.1ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:45 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:46 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:46 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:46 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:46 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:46 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 12:46:46 +0300
+
+
+Started POST "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:48:15 +0300
+Processing by HoneyOrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuQ58dpIQI0s6GT3WcM2uEEMwZ0lXIyGDfxaK20mdy4=", "honey_order"=>{"user"=>"", "company"=>"", "tel"=>"", "location"=>"Bole", "amount"=>"4", "price"=>"2.25"}, "commit"=>"Create Honey order", "honey_id"=>"1"}
+  [1m[35mHoney Load (0.8ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (14.1ms)[0m  INSERT INTO "honey_orders" ("amount", "company", "created_at", "honey_id", "location", "price", "tel", "updated_at", "user") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["amount", 4], ["company", ""], ["created_at", Wed, 14 May 2014 09:48:15 UTC +00:00], ["honey_id", 1], ["location", "Bole"], ["price", #<BigDecimal:a835e00,'0.225E1',18(18)>], ["tel", ""], ["updated_at", Wed, 14 May 2014 09:48:15 UTC +00:00], ["user", ""]]
+  [1m[36m (538.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mHoney Load (0.2ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/honeys/1
+Completed 302 Found in 1232ms (ActiveRecord: 571.4ms)
+
+
+Started GET "/honeys/1" for 127.0.0.1 at 2014-05-14 12:48:16 +0300
+Processing by HoneysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mHoney Load (0.4ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered honeys/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 70ms (Views: 52.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-14 12:48:16 +0300
+
+
+Started GET "/assets/egg_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:48:16 +0300
+
+
+Started GET "/assets/eggs.css?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/honey_orders.css?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/honeys.css?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/egg_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/eggs.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/honey_orders.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/honeys.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-14 12:48:17 +0300
+
+
+Started GET "/honeys" for 127.0.0.1 at 2014-05-14 12:48:47 +0300
+Processing by HoneysController#index as HTML
+  [1m[36mHoney Load (0.4ms)[0m  [1mSELECT "honeys".* FROM "honeys"[0m
+  [1m[35m (4.2ms)[0m  SELECT COUNT(*) FROM "honey_orders" WHERE "honey_orders"."honey_id" = ?  [["honey_id", 1]]
+  Rendered honeys/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 65ms (Views: 52.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/honeys/1/honey_orders" for 127.0.0.1 at 2014-05-14 12:49:13 +0300
+Processing by HoneyOrdersController#index as HTML
+  Parameters: {"honey_id"=>"1"}
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mHoneyOrder Load (0.5ms)[0m  SELECT "honey_orders".* FROM "honey_orders" WHERE "honey_orders"."honey_id" = ?  [["honey_id", 1]]
+  [1m[36mHoney Load (0.3ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "honeys".* FROM "honeys" WHERE "honeys"."id" = ? ORDER BY "honeys"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered honey_orders/index.html.erb within layouts/application (63.3ms)
+Completed 200 OK in 125ms (Views: 110.6ms | ActiveRecord: 1.2ms)
