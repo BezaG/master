@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @milk_order.user %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @milk_order.company %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @milk_order.tel %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @milk_order.location %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @milk_order.price %>
+</p>
+
+<p>
+  <strong>Milk:</strong>
+  <%= @milk_order.milk_id %>
+</p>
+
+<%= link_to 'Edit', edit_milk_milk_order_path(@milk_order.milk, @milk_order) %> |
+<%= link_to 'Back', milk_milk_orders_path(@milk_order.milk) %>

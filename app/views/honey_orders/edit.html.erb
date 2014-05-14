@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @honey_order %> |
-<%= link_to 'Back', honey_orders_path %>
+<%= link_to 'Show', [@honey_order.honey, @honey_order] %> |
+<%= link_to 'Back', honey_honey_orders_path(@honey_order.honey) %>

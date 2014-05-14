@@ -1,0 +1,42 @@
+<h1>Listing milks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Company</th>
+      <th>Tel</th>
+      <th>Location</th>
+      <th>Condition</th>
+      <th>Daily Quantity</th>
+      <th>Price</th>
+      <th>Reciept</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @milks.each do |milk| %>
+      <tr>
+        <td><%= milk.user %></td>
+        <td><%= milk.company %></td>
+        <td><%= milk.tel %></td>
+        <td><%= milk.location %></td>
+        <td><%= milk.condition %></td>
+        <td><%= milk.daily_quantity %></td>
+        <td><%= milk.price %></td>
+        <td><%= milk.reciept %></td>
+          <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{milk.milk_order.count}#{"Orders"} "),milk_milk_orders_path(milk)  %></td>
+        <td><%= link_to 'Show', milk %></td>
+        <td><%= link_to 'Edit', edit_milk_path(milk) %></td>
+        <td><%= link_to 'Destroy', milk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Milk', new_milk_path %>

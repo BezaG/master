@@ -1,0 +1,46 @@
+<%= form_for(@milk) do |f| %>
+  <% if @milk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@milk.errors.count, "error") %> prohibited this milk from being saved:</h2>
+
+      <ul>
+      <% @milk.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.hidden_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :company  %><br>
+    <%= f.hidden_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :tel %><br>
+    <%= f.hidden_field :tel%>
+  </div>
+  <div class="field">
+    <%= f.select :location, options_for_select(%w[Bole Yeka kirkos]) %>
+  </div>
+  <div class="field">
+    <%= f.select :condition, options_for_select(%w[Packed Unpacked]) %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+    <div class="field">
+    <%= f.label :daily_quantity %><br>
+    <%= f.text_field :daily_quantity %>
+  </div>
+  <div class="field">
+    <%= f.select :reciept, options_for_select(%w[VAT TOT None]) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
