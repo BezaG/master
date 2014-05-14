@@ -1,0 +1,48 @@
+<%- model_class = EggOrder -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:user) %></th>
+      <th><%= model_class.human_attribute_name(:company) %></th>
+      <th><%= model_class.human_attribute_name(:tel) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:daily_quantity) %></th>
+      <th><%= model_class.human_attribute_name(:egg_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @egg_orders.each do |egg_order| %>
+      <tr>
+        <td><%= link_to egg_order.id, egg_order_path(egg_order) %></td>
+        <td><%= egg_order.user %></td>
+        <td><%= egg_order.company %></td>
+        <td><%= egg_order.tel %></td>
+        <td><%= egg_order.location %></td>
+        <td><%= egg_order.price %></td>
+        <td><%= egg_order.daily_quantity %></td>
+        <td><%= egg_order.egg_id %></td>
+        <td><%=l egg_order.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_egg_order_path(egg_order), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      egg_order_path(egg_order),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_egg_order_path,
+            :class => 'btn btn-primary' %>

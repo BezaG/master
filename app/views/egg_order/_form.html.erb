@@ -1,0 +1,50 @@
+<%= form_for @egg_order, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :user, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :user, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :company, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :company, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tel, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tel, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :location, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :price, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :daily_quantity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :daily_quantity, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :egg_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :egg_id, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                egg_order_path, :class => 'btn' %>
+  </div>
+<% end %>
