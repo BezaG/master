@@ -14,15 +14,15 @@
  
   <div class="field">
     <%= f.label :user %><br>
-    <%= f.text_field :user %>
+    <%= f.hidden_field :user %>
   </div>
   <div class="field">
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
+    <%= f.label :company  %><br>
+    <%= f.hidden_field :company %>
   </div>
   <div class="field">
     <%= f.label :tel %><br>
-    <%= f.text_field :tel %>
+    <%= f.hidden_field :tel%>
   </div>
   <div class="field">
     <%= f.select :location, options_for_select(%w[Bole Yeka kirkos]) %>

@@ -1,7 +1,5 @@
 class Egg < ActiveRecord::Base
-  validates_presence_of :user, :message => "can't be blank"
-  validates_presence_of :tel, :message => "can't be blank"
-  validates_presence_of :company, :message => "can't be blank"
+ 
   validates_presence_of :location, :message => "can't be blank"
   validates_presence_of :type_of_egg, :message => "can't be blank"
   validates_presence_of :daily_quantity, :message => "can't be blank"

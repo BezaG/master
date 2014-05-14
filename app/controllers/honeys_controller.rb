@@ -26,6 +26,11 @@ class HoneysController < ApplicationController
   def create
     @honey = Honey.new(honey_params)
 
+    @honey.user = current_user.user_name
+    @honey.company = current_user.company_name
+    @honey.tel = current_user.tel
+
+
     respond_to do |format|
       if @honey.save
         format.html { redirect_to @honey, notice: 'Honey was successfully created.' }

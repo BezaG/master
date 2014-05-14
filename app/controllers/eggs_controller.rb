@@ -26,6 +26,11 @@ class EggsController < ApplicationController
   def create
     @egg = Egg.new(egg_params)
 
+    @egg.user = current_user.user_name
+    @egg.company = current_user.company_name
+    @egg.tel = current_user.tel
+
+
     respond_to do |format|
       if @egg.save
         format.html { redirect_to @egg, notice: 'Egg was successfully created.' }

@@ -59,6 +59,11 @@ class EggOrdersController < ApplicationController
     egg = Egg.find(params[:egg_id])
     #2nd you create the comment with arguments in params[:comment]
     @eggorder = egg.egg_order.create(egg_order_params)
+
+    @eggorder.user = current_user.user_name
+    @eggorder.company = current_user.company_name
+    @eggorder.tel = current_user.tel
+
  
     respond_to do |format|
       if @eggorder.save
