@@ -1,6 +1,38 @@
+<h1>Item</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Company</th>
+      <th>Tel</th>
+      <th>Location</th>
+      <th>Type</th>
+      <th>Daily quantity</th>
+      <th>Price</th>
+      <th>Reciept</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @egg.user %></td>
+        <td><%= @egg.company %></td>
+        <td><%= @egg.tel %></td>
+        <td><%= @egg.location %></td>
+        <td><%= @egg.type_of_egg %></td>
+        <td><%= @egg.daily_quantity %></td>
+        <td><%= @egg.price %></td>
+        <td><%= @egg.reciept %></td>
+      </tr>
+    </tbody>
+    </table>
 <h1>Listing egg_orders</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>

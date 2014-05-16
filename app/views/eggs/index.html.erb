@@ -1,6 +1,6 @@
 <h1>Listing eggs</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -28,7 +28,7 @@
         <td><%= egg.daily_quantity %></td>
         <td><%= egg.price %></td>
         <td><%= egg.reciept %></td>
-        <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_order.count}#{"Orders"} "),egg_egg_orders_path(egg)  %></td>
+        <td> <%= link_to raw("<i class='pull-right icon-chevron-right btn btn-default'></i> #{egg.egg_order.count}#{"Orders"} "),egg_egg_orders_path(egg)  %></td>
         <td><%= link_to 'Show', egg %></td>
         <td><%= link_to 'Edit', edit_egg_path(egg) %></td>
         <td><%= link_to 'Destroy', egg, method: :delete, data: { confirm: 'Are you sure?' } %></td>

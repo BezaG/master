@@ -1,4 +1,5 @@
 class EggsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
   before_action :set_egg, only: [:show, :edit, :update, :destroy]
 
   # GET /eggs
@@ -25,8 +26,8 @@ class EggsController < ApplicationController
   # POST /eggs.json
   def create
     @egg = Egg.new(egg_params)
-
-    @egg.user = current_user.user_name
+    
+    @egg.user = current_user.user_name 
     @egg.company = current_user.company_name
     @egg.tel = current_user.tel
 

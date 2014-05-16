@@ -5,9 +5,9 @@ class EggOrdersController < ApplicationController
   # GET /posts/:post_id/comments.xml
   def index
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you get all the comments of this post
-    @eggorders = egg.egg_order 
+    @eggorders = @egg.egg_order 
  
     respond_to do |format|
       format.html # index.html.erb

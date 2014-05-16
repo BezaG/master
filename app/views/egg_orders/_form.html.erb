@@ -24,13 +24,13 @@
     <%= f.label :tel %><br>
     <%= f.hidden_field :tel%>
   </div>
-  <div class="field">
-    <%= f.select :location, options_for_select(%w[Bole Yeka kirkos]) %>
+  <div class="form-field">
+    <%= f.select :location, options_for_select(%w[Bole Yeka kirkos]), class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.text_field :price,class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :daily_quantity %><br>
