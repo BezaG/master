@@ -1,5 +1,6 @@
 AddisFarmMarket::Application.routes.draw do
   
+  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
 root :to => 'static_pages#welcome'
   resources :mushrooms do
     resources :mushroom_orders

@@ -6,7 +6,7 @@ class EggOrder < ActiveRecord::Base
   validate :price_must_be_more
 
   belongs_to :egg
-  
+  belongs_to :user
 # other model methods
 
 private

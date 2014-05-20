@@ -1,5 +1,5 @@
 class EggsController < ApplicationController
-  
+  before_filter :authenticate_user!, :except => [:index]
   before_action :set_egg, only: [:show, :edit, :update, :destroy]
 
   # GET /eggs
@@ -27,8 +27,10 @@ class EggsController < ApplicationController
   def create
     @egg = Egg.new(egg_params)
 
+    @egg.company = current_user.company_name
     
-   
+
+
 
 
     respond_to do |format|

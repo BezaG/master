@@ -6,4 +6,5 @@ class Mushroom < ActiveRecord::Base
   validates_presence_of :day_of_supply, :message => "can't be blank"
 
   has_many :mushroom_order
+  belongs_to :user
 end

@@ -6,6 +6,7 @@ class MushroomOrder < ActiveRecord::Base
   validate :price_must_be_more
 
   belongs_to :mushroom
+  belongs_to :user
   
 
   private

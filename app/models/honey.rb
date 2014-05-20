@@ -7,4 +7,5 @@ class Honey < ActiveRecord::Base
   validates_presence_of :condition, :message => "can't be blank"
 
   has_many :honey_order
+  belongs_to :user
 end

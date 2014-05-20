@@ -6,6 +6,7 @@ class HoneyOrder < ActiveRecord::Base
   validate :price_must_be_more
   
   belongs_to :honey
+  belongs_to :user
   
 
   private

@@ -6,6 +6,7 @@ class MilkOrder < ActiveRecord::Base
   validate :price_must_be_more
 
   belongs_to :milk
+  belongs_to :user
   
 
   private

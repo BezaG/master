@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @egg.user_id %>
-</p>
-
-<p>
   <strong>Company:</strong>
   <%= @egg.company %>
 </p>
@@ -27,7 +22,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @egg.price %>
+  <%= number_to_currency(@egg.price) %>
 </p>
 
 <p>

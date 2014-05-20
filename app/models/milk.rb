@@ -6,4 +6,5 @@ class Milk < ActiveRecord::Base
   validates_presence_of :condition, :message => "can't be blank"
 
   has_many :milk_order
+  belongs_to :user
 end

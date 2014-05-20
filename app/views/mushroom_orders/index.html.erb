@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      
       <th>Mushroom</th>
       <th>Company</th>
       <th>Location</th>
@@ -18,8 +18,7 @@
   <tbody>
     <% @mushroom_orders.each do |mushroom_order| %>
       <tr>
-        <td><%= mushroom_order.user_id %></td>
-        <td><%= mushroom_order.mushroom_id %></td>
+        
         <td><%= mushroom_order.company %></td>
         <td><%= mushroom_order.location %></td>
         <td><%= mushroom_order.quantity %></td>

@@ -1,4 +1,5 @@
 class HoneysController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
   before_action :set_honey, only: [:show, :edit, :update, :destroy]
 
   # GET /honeys
@@ -26,7 +27,9 @@ class HoneysController < ApplicationController
   def create
     @honey = Honey.new(honey_params)
 
+    @honey.company = current_user.company_name
     
+
   
 
 

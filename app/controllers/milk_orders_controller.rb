@@ -1,4 +1,5 @@
 class MilkOrdersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
   before_action :set_milk_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
@@ -59,6 +60,7 @@ class MilkOrdersController < ApplicationController
     #2nd you create the comment with arguments in params[:comment]
     @milk_order = milk.milk_order.create(milk_order_params)
     
+    @milk_order.company = current_user.company_name
     
     
 

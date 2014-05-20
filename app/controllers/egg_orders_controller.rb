@@ -1,5 +1,5 @@
 class EggOrdersController < ApplicationController
-  
+  before_filter :authenticate_user!, :except => [:index]
   before_action :set_egg_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
@@ -61,6 +61,7 @@ class EggOrdersController < ApplicationController
     #2nd you create the comment with arguments in params[:comment]
     @eggorder = egg.egg_order.create(egg_order_params)
 
+    @eggorder.company = current_user.company_name
     
   
 
@@ -123,7 +124,7 @@ class EggOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def egg_order_params
-      params.require(:egg_order).permit(:user_id, :company, :tel, :location, :price, :daily_quantity)
+      params.require(:egg_order).permit(:user_id, :company, :location, :price, :daily_quantity)
     end
   end
 

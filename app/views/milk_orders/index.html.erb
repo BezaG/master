@@ -3,8 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Milk</th>
+      
       <th>Company</th>
       <th>Location</th>
       <th>Daily quantity</th>
@@ -18,8 +17,7 @@
   <tbody>
     <% @milk_orders.each do |milk_order| %>
       <tr>
-        <td><%= milk_order.user_id %></td>
-        <td><%= milk_order.milk_id %></td>
+       
         <td><%= milk_order.company %></td>
         <td><%= milk_order.location %></td>
         <td><%= milk_order.daily_quantity %></td>

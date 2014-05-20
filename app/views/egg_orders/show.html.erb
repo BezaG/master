@@ -1,16 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @egg_order.user_id %>
-</p>
-
-<p>
-  <strong>Egg:</strong>
-  <%= @egg_order.egg_id %>
-</p>
-
-<p>
   <strong>Company:</strong>
   <%= @egg_order.company %>
 </p>
@@ -27,7 +17,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @egg_order.price %>
+  <%= number_to_currency(@egg_order.price) %>
 </p>
 
 <%= link_to 'Ok', eggs_path %>

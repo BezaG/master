@@ -6,4 +6,5 @@ class Egg < ActiveRecord::Base
   validates_presence_of :reciept, :message => "can't be blank"
 
   has_many :egg_order
+  belongs_to :user
 end

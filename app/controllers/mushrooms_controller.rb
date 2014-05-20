@@ -1,4 +1,5 @@
 class MushroomsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
   before_action :set_mushroom, only: [:show, :edit, :update, :destroy]
 
   # GET /mushrooms
@@ -25,6 +26,9 @@ class MushroomsController < ApplicationController
   # POST /mushrooms.json
   def create
     @mushroom = Mushroom.new(mushroom_params)
+    @mushroom.company = current_user.company_name
+    
+
 
     respond_to do |format|
       if @mushroom.save

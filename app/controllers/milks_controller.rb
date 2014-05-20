@@ -1,4 +1,5 @@
 class MilksController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
   before_action :set_milk, only: [:show, :edit, :update, :destroy]
 
   # GET /milks
@@ -26,7 +27,9 @@ class MilksController < ApplicationController
   def create
     @milk = Milk.new(milk_params)
 
+    @milk.company = current_user.company_name
     
+
 
 
 
