@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @egg.user_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @egg.company %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @egg.location %>
+</p>
+
+<p>
+  <strong>Type of egg:</strong>
+  <%= @egg.type_of_egg %>
+</p>
+
+<p>
+  <strong>Daily quantity:</strong>
+  <%= @egg.daily_quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @egg.price %>
+</p>
+
+<p>
+  <strong>Reciept:</strong>
+  <%= @egg.reciept %>
+</p>
+
+<%= link_to 'Edit', edit_egg_path(@egg) %> |
+<%= link_to 'Back', eggs_path %>

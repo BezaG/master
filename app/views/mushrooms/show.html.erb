@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @mushroom.user_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @mushroom.company %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @mushroom.location %>
+</p>
+
+<p>
+  <strong>Day of supply:</strong>
+  <%= @mushroom.day_of_supply %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @mushroom.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @mushroom.price %>
+</p>
+
+<p>
+  <strong>Reciept:</strong>
+  <%= @mushroom.reciept %>
+</p>
+
+<%= link_to 'Edit', edit_mushroom_path(@mushroom) %> |
+<%= link_to 'Back', mushrooms_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  company: MyString
+  location: MyString
+  day_of_supply: 2014-05-20 10:49:57
+  quantity: 1
+  price: 9.99
+  reciept: MyString
+
+two:
+  user_id: 1
+  company: MyString
+  location: MyString
+  day_of_supply: 2014-05-20 10:49:57
+  quantity: 1
+  price: 9.99
+  reciept: MyString

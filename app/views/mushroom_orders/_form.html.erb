@@ -1,0 +1,42 @@
+<%= form_for([@mushroom_order.mushroom, @mushroom_order]) do |f| %>
+  <% if @mushroom_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mushroom_order.errors.count, "error") %> prohibited this mushroom_order from being saved:</h2>
+
+      <ul>
+      <% @mushroom_order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :mushroom_id %><br>
+    <%= f.number_field :mushroom_id %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+<%= form_for(@milk) do |f| %>
+  <% if @milk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@milk.errors.count, "error") %> prohibited this milk from being saved:</h2>
+
+      <ul>
+      <% @milk.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :daily_quantity %><br>
+    <%= f.number_field :daily_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.text_field :condition %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :reciept %><br>
+    <%= f.text_field :reciept %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

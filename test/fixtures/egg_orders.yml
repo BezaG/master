@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  egg_id: 1
+  company: MyString
+  location: MyString
+  daily_quantity: 1
+  price: 9.99
+
+two:
+  user_id: 1
+  egg_id: 1
+  company: MyString
+  location: MyString
+  daily_quantity: 1
+  price: 9.99

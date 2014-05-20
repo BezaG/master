@@ -1,0 +1,39 @@
+<h1>Listing mushrooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Company</th>
+      <th>Location</th>
+      <th>Day of supply</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Reciept</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mushrooms.each do |mushroom| %>
+      <tr>
+        <td><%= mushroom.user_id %></td>
+        <td><%= mushroom.company %></td>
+        <td><%= mushroom.location %></td>
+        <td><%= mushroom.day_of_supply %></td>
+        <td><%= mushroom.quantity %></td>
+        <td><%= number_to_currency(mushroom.price) %></td>
+        <td><%= mushroom.reciept %></td>
+        <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{mushroom.mushroom_order.count}#{"Orders"} "),mushroom_mushroom_orders_path(mushroom)  %></td>
+        <td><%= link_to 'Edit', edit_mushroom_path(mushroom) %></td>
+        <td><%= link_to 'Destroy', mushroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mushroom', new_mushroom_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @honey_order.user_id %>
+</p>
+
+<p>
+  <strong>Honey:</strong>
+  <%= @honey_order.honey_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @honey_order.company %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @honey_order.location %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @honey_order.amount %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @honey_order.price %>
+</p>
+
+<%= link_to 'Edit', edit_honey_honey_order_path(@honey_order.honey, @honey_order) %> |
+<%= link_to 'Back', honey_honey_orders_path(@honey_order.honey) %>

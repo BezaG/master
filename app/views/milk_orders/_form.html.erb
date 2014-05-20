@@ -1,0 +1,41 @@
+<%= form_for([@milk_order.milk, @milk_order]) do |f| %>
+  <% if @milk_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@milk_order.errors.count, "error") %> prohibited this milk_order from being saved:</h2>
+
+      <ul>
+      <% @milk_order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :milk_id %><br>
+    <%= f.number_field :milk_id %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :daily_quantity %><br>
+    <%= f.number_field :daily_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
