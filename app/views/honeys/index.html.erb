@@ -29,13 +29,22 @@
         <td><%= number_to_currency(honey.price) %></td>
         <td><%= honey.reciept %></td>
         <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
-        <td><%= link_to 'Edit', edit_honey_path(honey) %></td>
-        <td><%= link_to 'Destroy', honey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, honey %>
+          <%= link_to 'Edit', edit_honey_path(honey) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :delete, honey %>
+          <%= link_to 'Destroy', honey, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if can? :create, Honey %>
 <%= link_to 'New Honey', new_honey_path %>
+<% end %>

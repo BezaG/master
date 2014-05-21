@@ -27,13 +27,22 @@
         <td><%= number_to_currency(mushroom.price) %></td>
         <td><%= mushroom.reciept %></td>
         <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{mushroom.mushroom_order.count}#{"Orders"} "),mushroom_mushroom_orders_path(mushroom)  %></td>
-        <td><%= link_to 'Edit', edit_mushroom_path(mushroom) %></td>
-        <td><%= link_to 'Destroy', mushroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, mushroom %>
+          <%= link_to 'Edit', edit_mushroom_path(mushroom) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :delete, mushroom %>
+          <%= link_to 'Destroy', mushroom, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if can? :create, Mushroom %>
 <%= link_to 'New Mushroom', new_mushroom_path %>
+<% end %>

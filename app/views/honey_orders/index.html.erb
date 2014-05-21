@@ -23,13 +23,22 @@
         <td><%= honey_order.amount %></td>
         <td><%= number_to_currency(honey_order.price) %></td>
         
-        <td><%= link_to 'Edit', edit_honey_honey_order_path(honey_order.honey,honey_order) %> </td>
-        <td><%= link_to 'Destroy', [honey_order.honey, honey_order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, honey_order %>
+          <%= link_to 'Edit', edit_honey_honey_order_path(honey_order.honey,honey_order) %>
+          <% end %> 
+        </td>
+        <td>
+          <% if can? :delete, honey_order %>
+          <%= link_to 'Destroy', [honey_order.honey, honey_order], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if can? :create, HoneyOrder %>
 <%= link_to 'New Honey order', new_honey_honey_order_path %>
+<% end %>

@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password) }
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ roles: [] }, :email,:user_name, :company_name, :tel, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:id, :email, :password) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:role, :email,:user_name, :company_name, :tel, :password, :password_confirmation) }
   end
+    rescue_from CanCan::AccessDenied do |exception|
+        flash[:error] = exception.message
+        redirect_to root_url
+    end
 end

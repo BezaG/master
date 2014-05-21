@@ -1,5 +1,6 @@
 class EggOrdersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
+  load_and_authorize_resource
   before_action :set_egg_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
@@ -60,7 +61,7 @@ class EggOrdersController < ApplicationController
     egg = Egg.find(params[:egg_id])
     #2nd you create the comment with arguments in params[:comment]
     @eggorder = egg.egg_order.create(egg_order_params)
-
+    @eggorder.user = current_user
     @eggorder.company = current_user.company_name
     
   

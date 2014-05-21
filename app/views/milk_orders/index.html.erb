@@ -22,14 +22,23 @@
         <td><%= milk_order.location %></td>
         <td><%= milk_order.daily_quantity %></td>
         <td><%= number_to_currency(milk_order.price) %></td>
-        <td><%= link_to 'Edit', edit_milk_milk_order_path(milk_order.milk, milk_order) %></td>
-        <td><%= link_to 'Destroy', [milk_order.milk, milk_order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, milk_order %>
+          <%= link_to 'Edit', edit_milk_milk_order_path(milk_order.milk, milk_order) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :delete, milk_order %>
+          <%= link_to 'Destroy', [milk_order.milk, milk_order], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if can? :create, MilkOrder %>
  <%= link_to 'New Milk order', new_milk_milk_order_path %>
+ <% end %>
 <%= link_to 'Back', milks_path %>

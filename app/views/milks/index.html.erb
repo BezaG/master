@@ -27,13 +27,22 @@
         <td><%= number_to_currency(milk.price) %></td>
         <td><%= milk.reciept %></td>
          <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{milk.milk_order.count}#{"Orders"} "),milk_milk_orders_path(milk)  %></td>
-        <td><%= link_to 'Edit', edit_milk_path(milk) %></td>
-        <td><%= link_to 'Destroy', milk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, milk %>
+          <%= link_to 'Edit', edit_milk_path(milk) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :delete, milk %>
+          <%= link_to 'Destroy', milk, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if can? :create, Milk %>
 <%= link_to 'New Milk', new_milk_path %>
+<% end %>

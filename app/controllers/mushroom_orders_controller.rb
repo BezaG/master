@@ -1,5 +1,6 @@
 class MushroomOrdersController < ApplicationController
  before_filter :authenticate_user!, :except => [:index]
+ load_and_authorize_resource
  before_action :set_mushroom_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
@@ -59,6 +60,7 @@ class MushroomOrdersController < ApplicationController
     mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you create the comment with arguments in params[:comment]
     @mushroom_order = mushroom.mushroom_order.create(mushroom_order_params)
+    @mushroom_order.user = current_user
     @mushroom_order.company = current_user.company_name
     
 

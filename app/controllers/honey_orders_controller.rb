@@ -1,5 +1,6 @@
 class HoneyOrdersController < ApplicationController
  before_filter :authenticate_user!, :except => [:index]
+ load_and_authorize_resource
  before_action :set_honey_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
@@ -59,6 +60,7 @@ class HoneyOrdersController < ApplicationController
     honey = Honey.find(params[:honey_id])
     #2nd you create the comment with arguments in params[:comment]
     @honey_order = honey.honey_order.create(honey_order_params)
+    @honey_order.user = current_user
     @honey_order.company = current_user.company_name
    
 

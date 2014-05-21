@@ -1,5 +1,6 @@
 class EggsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
+  load_and_authorize_resource 
   before_action :set_egg, only: [:show, :edit, :update, :destroy]
 
   # GET /eggs
@@ -26,7 +27,7 @@ class EggsController < ApplicationController
   # POST /eggs.json
   def create
     @egg = Egg.new(egg_params)
-
+    @egg.user = current_user
     @egg.company = current_user.company_name
     
 

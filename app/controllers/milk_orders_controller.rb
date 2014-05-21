@@ -1,5 +1,6 @@
 class MilkOrdersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
+  load_and_authorize_resource
   before_action :set_milk_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
@@ -59,7 +60,7 @@ class MilkOrdersController < ApplicationController
     milk = Milk.find(params[:milk_id])
     #2nd you create the comment with arguments in params[:comment]
     @milk_order = milk.milk_order.create(milk_order_params)
-    
+    @milk_order.user = current_user   
     @milk_order.company = current_user.company_name
     
     

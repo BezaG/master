@@ -27,13 +27,22 @@
         <td><%= number_to_currency(egg.price) %></td>
         <td><%= egg.reciept %></td>
        <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_order.count}#{"Orders"} "),egg_egg_orders_path(egg)  %></td>
-        <td><%= link_to 'Edit', edit_egg_path(egg) %></td>
-        <td><%= link_to 'Destroy', egg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, egg %>
+          <%= link_to 'Edit', edit_egg_path(egg) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :delete, egg %>
+          <%= link_to 'Destroy', egg, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if can? :create, Egg %>
 <%= link_to 'New Egg', new_egg_path %>
+<% end %>

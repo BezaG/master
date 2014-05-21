@@ -1,5 +1,6 @@
 class MilksController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
+  load_and_authorize_resource
   before_action :set_milk, only: [:show, :edit, :update, :destroy]
 
   # GET /milks
@@ -26,7 +27,7 @@ class MilksController < ApplicationController
   # POST /milks.json
   def create
     @milk = Milk.new(milk_params)
-
+    @milk.user = current_user
     @milk.company = current_user.company_name
     
 

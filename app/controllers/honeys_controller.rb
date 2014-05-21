@@ -1,5 +1,6 @@
 class HoneysController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
+  load_and_authorize_resource
   before_action :set_honey, only: [:show, :edit, :update, :destroy]
 
   # GET /honeys
@@ -26,7 +27,7 @@ class HoneysController < ApplicationController
   # POST /honeys.json
   def create
     @honey = Honey.new(honey_params)
-
+    @honey.user = current_user
     @honey.company = current_user.company_name
     
 
