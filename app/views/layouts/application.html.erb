@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>AddisFarmMarket</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<ul class="nav nav-list">
-              <li class="nav-header">Resources</li>
-              <li><%= link_to "Egg Market", eggs_path  %></li>
-              <li><%= link_to "Honey Market", honeys_path  %></li>
-              <li><%= link_to "Milk Market", milks_path  %></li>
-              <li><%= link_to "Mushroom Market", mushrooms_path  %></li>
-            </ul>
-            <div id="container">
-              <div id="user_nav">
-                <% if user_signed_in? %>
-                Signed in as <%= current_user.role %>.Not you? <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-                <% else %>
-                  <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-                  <% end %>
-                </div>
-              </div>
-<%= yield %>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Addis Farm Market" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Addis Farm Market" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="wrapper">
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+   
+       <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3 nav-bor span-height span-color">
+            <h1 class="nav-title"> Markets </h1>
+            <ul class="nav-space">
+            <li><%= image_tag "egg.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Egg", eggs_path, :class => "btn btn-large btn-circle"  %></li></br></br>
+                
+                
+                <li><%= image_tag "honey.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Honey", honeys_path, :class => "btn btn-large btn-circle "  %></li></br></br>
+                <li><%= image_tag "milk.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Milk", milks_path, :class => "btn btn-large btn-circle"  %></li></br></br>
+                <li><%= image_tag "mushroom.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Mushroom", mushrooms_path, :class => "btn btn-large btn-circle "  %></li></br>
+             </ul>
+                    <div class="nav-title">    Others are coming soon...</div>
+          </div><!--/span-->
+            <div class="span9">
+              <%= bootstrap_flash %>
+              <%= yield %>
+            </div>
+          </div>
+          <div class="push"></div>
+     </div>
+     
+    
+  </body>
+    <footer>
+      <div class="container text-center" id="footer">
+        <p>&copy; Company 2012</p>
+      </div>
+    </footer>
+  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>

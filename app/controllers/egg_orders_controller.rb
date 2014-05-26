@@ -1,15 +1,16 @@
 class EggOrdersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
-  load_and_authorize_resource
+  before_filter :authenticate_user!
+   
+  load_and_authorize_resource :egg
+  load_and_authorize_resource :egg_order, :through => :egg, :parent => false
   before_action :set_egg_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
   # GET /posts/:post_id/comments.xml
   def index
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
-    #2nd you get all the comments of this post
-    @egg_orders = egg.egg_order 
+    
+
  
     respond_to do |format|
       format.html # index.html.erb
@@ -21,9 +22,9 @@ class EggOrdersController < ApplicationController
   # GET /comments/:id.xml
   def show
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_order.find(params[:id])
     @eggs = Egg.find(:all)
  
     respond_to do |format|
@@ -36,9 +37,9 @@ class EggOrdersController < ApplicationController
   # GET /posts/:post_id/comments/new.xml
   def new
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you build a new one
-    @eggorder = egg.egg_order.build
+    @eggorder = @egg.egg_order.build
  
     respond_to do |format|
       format.html # new.html.erb
@@ -49,18 +50,18 @@ class EggOrdersController < ApplicationController
   # GET /posts/:post_id/comments/:id/edit
   def edit
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_order.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
   # POST /posts/:post_id/comments.xml
   def create
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you create the comment with arguments in params[:comment]
-    @eggorder = egg.egg_order.create(egg_order_params)
+    @eggorder = @egg.egg_order.create(egg_order_params)
     @eggorder.user = current_user
     @eggorder.company = current_user.company_name
     
@@ -84,9 +85,9 @@ class EggOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_order.find(params[:id])
  
     respond_to do |format|
       if @eggorder.update_attributes(params[:eggorder])
@@ -104,9 +105,9 @@ class EggOrdersController < ApplicationController
   # DELETE /posts/:post_id/comments/1.xml
   def destroy
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_order.find(params[:id])
     @eggorder.destroy
  
     respond_to do |format|

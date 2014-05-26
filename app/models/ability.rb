@@ -7,14 +7,11 @@ class Ability
      if user.role == "admin"
       can :manage, :all 
      
-   
-    elsif user.role == "buyer"
-      can [:create,:read], EggOrder
+     elsif user.role == "buyer"
+      
       can :read, Egg
       can :update, EggOrder, :user_id => user.id
-      can :delete, EggOrder do |egg_order|
-        egg_order.try(:user) == user 
-      end
+      can :delete, EggOrder, :user_id => user.id
       can [:create,:read], HoneyOrder
       can :read, Honey
       can :update, HoneyOrder do |honey_order|
@@ -43,9 +40,9 @@ class Ability
       
     elsif user.role == "seller"
       can [ :read, :create ], Egg
-      can [:read, :update ], EggOrder
+      can [:read, :update ], EggOrder, :egg => { :user_id => user.id }
       can :update, Egg do |egg|
-        egg.try(:user) == user
+        egg.try(:user) == user 
       end
       can :delete, Egg do |egg|
         egg.try(:user) == user
@@ -74,6 +71,8 @@ class Ability
       can :delete, Mushroom do |mushroom|
         mushroom.try(:user) == user 
       end
+    else
+      can :read, :egg;
     end
   
 

@@ -1,7 +1,7 @@
 class EggsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!
   load_and_authorize_resource 
-  before_action :set_egg, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /eggs
   # GET /eggs.json

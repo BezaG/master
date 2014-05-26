@@ -1,45 +1,16 @@
-<%= form_for(@egg) do |f| %>
-  <% if @egg.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@egg.errors.count, "error") %> prohibited this egg from being saved:</h2>
-
-      <ul>
-      <% @egg.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= simple_form_for(@egg, :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :company %>
+  <%= f.input :location, :label => "Location", :collection => ["Bole","Yeka"], :selected => "Bole" %>
+  <%= f.input :type_of_egg, :label => "Egg Type", :collection => ["ferenji","habesha"], :selected => "fenenji" %>
+  <%= f.input :daily_quantity %>
+  <%= f.input :price, :label => "Price Per Egg" ,:wrapper => :append, :class => "inline" do %>
+  <%= f.input_field :price, :placeholder => "2.00",  value: number_with_precision(f.object.price, precision: 2) %>
+  <%= content_tag :span, "Birr", :class => "add-on abbn" %>
   <% end %>
-
-  <div class="field">
-    
-    <%= f.hidden_field :user_id %>
-  </div>
-  <div class="field">
-    
-    <%= f.hidden_field :company %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :type_of_egg %><br>
-    <%= f.text_field :type_of_egg %>
-  </div>
-  <div class="field">
-    <%= f.label :daily_quantity %><br>
-    <%= f.number_field :daily_quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :reciept %><br>
-    <%= f.text_field :reciept %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= f.input :reciept, :label => "Reciept Type", :collection => ["VAT","TOT","None"], :selected => "VAT" %>
+  <div class = "form-actions">
+  <%= f.button :submit, :class => "btn btn-large" %>
+</div>
+  <% end %>
+<%= link_to '<< Back', eggs_path, :class => "btn btn-large btn-info" %>

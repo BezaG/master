@@ -1,34 +1,27 @@
 <p id="notice"><%= notice %></p>
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <thead>
+    <td><strong>Company</strong></td>
+    <td><strong>Location</strong></td>
+    <td><strong>Egg Type</strong></td>
+    <td><strong>Daily Quantity</strong></td>
+    <td><strong>Price Per Egg</strong></td>
+    <td><strong>Reciept</strong></td>
+  </thead>
+  <tbody>
 
-<p>
-  <strong>Company:</strong>
-  <%= @egg.company %>
-</p>
+  <td><%= @egg.company %></td>
 
-<p>
-  <strong>Location:</strong>
-  <%= @egg.location %>
-</p>
+  <td><%= @egg.location %></td>
 
-<p>
-  <strong>Type of egg:</strong>
-  <%= @egg.type_of_egg %>
-</p>
+  <td><%= @egg.type_of_egg %></td>
 
-<p>
-  <strong>Daily quantity:</strong>
-  <%= @egg.daily_quantity %>
-</p>
+  <td><%= @egg.daily_quantity %></td>
 
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@egg.price) %>
-</p>
+  <td><%= number_to_currency(@egg.price) %></td>
 
-<p>
-  <strong>Reciept:</strong>
-  <%= @egg.reciept %>
-</p>
-
-<%= link_to 'Edit', edit_egg_path(@egg) %> |
-<%= link_to 'Back', eggs_path %>
+  <td><%= @egg.reciept %></td>
+</tbody>
+</table>
+<%= link_to 'Put this on Market', eggs_path,:class => "btn btn-large btn-primary" %>
+<%= link_to 'Edit', edit_egg_path(@egg),:class => "btn btn-large btn-warning" %></td>

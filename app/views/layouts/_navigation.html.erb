@@ -1,0 +1,36 @@
+<%# navigation styled for Bootstrap 3.0 %>
+
+    <div class="navbar navbar-inverse navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Addisfarmmarket</a>
+          <div class="container-fluid nav-collapse">
+            <ul class="nav">
+              <li><%= link_to "Home", "/path1"  %></li>
+              <li><%= link_to "About Us", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li>
+            
+                 
+                <% if user_signed_in? %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Settings", edit_user_registration_path %></li>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+                <p class="navbar-text pull-right"><%= current_user.email %></p>
+                <% else %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Sign in", new_user_session_path %></li>
+                  <li><%= link_to "Sign up", new_user_registration_path %></li>
+                </ul>
+                <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
