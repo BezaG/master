@@ -1,6 +1,6 @@
-<h1>Listing milks</h1>
+<h1 class="page-title">Milk Market</h1>
 
-<table>
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
       
@@ -10,33 +10,48 @@
       <th>Condition</th>
       <th>Price</th>
       <th>Reciept</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
+      
     </tr>
   </thead>
 
   <tbody>
     <% @milks.each do |milk| %>
       <tr>
-        
+        <% @bool = 'false' %>
         <td><%= milk.company %></td>
         <td><%= milk.location %></td>
         <td><%= milk.daily_quantity %></td>
         <td><%= milk.condition %></td>
         <td><%= number_to_currency(milk.price) %></td>
         <td><%= milk.reciept %></td>
-         <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{milk.milk_order.count}#{"Orders"} "),milk_milk_orders_path(milk)  %></td>
-        <td>
-          <% if can? :update, milk %>
-          <%= link_to 'Edit', edit_milk_path(milk) %>
+          <% milk.milk_orders.each do |milk_order| 
+            if (milk_order.user_id == current_user.id)
+               @bool = 'true' 
+           end %>
+        <% end %>
+        <% if can? :create, MilkOrder %>
+          <% if @bool == 'false' %>
+              <td><%= link_to "Make Order", new_milk_milk_order_path(milk) %></td>
+              <% else %>
+              <td><%= link_to "Make another order", new_milk_milk_order_path(milk) %></td>
           <% end %>
-        </td>
-        <td>
-          <% if can? :delete, milk %>
-          <%= link_to 'Destroy', milk, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </td>
+        <% end %>
+         <% if @bool == 'true' %> 
+         <td><%= link_to "Your Orders", milk_milk_orders_path(milk) %></td>
+        <% end %>
+        <% if can? :edit, milk %>
+          <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{milk.milk_orders.count}#{"Orders"} "),milk_milk_orders_path(milk)  %></td>
+        <% end %>
+        
+        <% if can? :update, milk %>
+          <td><%= link_to 'Edit', edit_milk_path(milk) %></td>
+         <% end %>
+        
+        <% if can? :delete, milk %>
+        <td><%= link_to 'Destroy', milk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>

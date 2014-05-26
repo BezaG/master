@@ -1,6 +1,6 @@
-<h1>Listing milk_orders</h1>
+<h1>Milk Orders</h1>
 
-<table>
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
       
@@ -8,9 +8,8 @@
       <th>Location</th>
       <th>Daily quantity</th>
       <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
+      
     </tr>
   </thead>
 
@@ -22,22 +21,20 @@
         <td><%= milk_order.location %></td>
         <td><%= milk_order.daily_quantity %></td>
         <td><%= number_to_currency(milk_order.price) %></td>
-        <td>
-          <% if can? :update, milk_order %>
-          <%= link_to 'Edit', edit_milk_milk_order_path(milk_order.milk, milk_order) %>
-          <% end %>
-        </td>
-        <td>
-          <% if can? :delete, milk_order %>
-          <%= link_to 'Destroy', [milk_order.milk, milk_order], method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </td>
+        <% if can? :update, milk_order %>
+          <td><%= link_to 'Edit', edit_milk_milk_order_path(milk_order.milk, milk_order) %></td>
+        <% end %>
+        
+        <% if can? :delete, milk_order %>
+          <td> <%= link_to 'Destroy', [milk_order.milk, milk_order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</br>
 <% if can? :create, MilkOrder %>
  <%= link_to 'New Milk order', new_milk_milk_order_path %>
  <% end %>

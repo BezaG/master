@@ -1,19 +1,18 @@
 class MushroomOrdersController < ApplicationController
  before_filter :authenticate_user!, :except => [:index]
- load_and_authorize_resource
+ load_and_authorize_resource :mushroom
+ load_and_authorize_resource :mushroom_order, :through => :mushroom, :parent => false
  before_action :set_mushroom_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
   # GET /posts/:post_id/comments.xml
   def index
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
-    #2nd you get all the comments of this post
-    @mushroom_orders = mushroom.mushroom_order 
+   
  
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @Mushroomorders }
+      format.xml  { render :xml => @mushroom_orders }
     end
   end
  
@@ -21,9 +20,9 @@ class MushroomOrdersController < ApplicationController
   # GET /comments/:id.xml
   def show
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
+    @mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @mushroom_order = mushroom.mushroom_order.find(params[:id])
+    @mushroom_order = @mushroom.mushroom_orders.find(params[:id])
      
     respond_to do |format|
       format.html # show.html.erb
@@ -35,31 +34,31 @@ class MushroomOrdersController < ApplicationController
   # GET /posts/:post_id/comments/new.xml
   def new
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
+    @mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you build a new one
-    @mushroom_order = mushroom.mushroom_order.build
+    @mushroom_order = @mushroom.mushroom_orders.build
  
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @Mushroomorder }
+      format.xml  { render :xml => @mushroom_order }
     end
   end
  
   # GET /posts/:post_id/comments/:id/edit
   def edit
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
+    @mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @mushroom_order = mushroom.mushroom_order.find(params[:id])
+    @mushroom_order = @mushroom.mushroom_orders.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
   # POST /posts/:post_id/comments.xml
   def create
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
+    @mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you create the comment with arguments in params[:comment]
-    @mushroom_order = mushroom.mushroom_order.create(mushroom_order_params)
+    @mushroom_order = @mushroom.mushroom_orders.create(mushroom_order_params)
     @mushroom_order.user = current_user
     @mushroom_order.company = current_user.company_name
     
@@ -69,9 +68,9 @@ class MushroomOrdersController < ApplicationController
     respond_to do |format|
       if @mushroom_order.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@mushroom_order.mushroom, @Mushroomorder], :notice => 'An Mushroom order was successfully created.') }
+        format.html { redirect_to([@mushroom_order.mushroom, @mushroom_order], :notice => 'An Mushroom order was successfully created.') }
         #the key :location is associated to an array in order to build the correct route to the nested resource comment
-        format.xml  { render :xml => @mushroom_order, :status => :created, :location => [@Mushroomorder.mushroom, @Mushroomorder] }
+        format.xml  { render :xml => @mushroom_order, :status => :created, :location => [@mushroom_order.mushroom, @mushroom_order] }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @mushroom_order.errors, :status => :unprocessable_entity }
@@ -83,14 +82,14 @@ class MushroomOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
+    @mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @Mushroomorder = mushroom.mushroom_order.find(params[:id])
+    @mushroom_order = @mushroom.mushroom_orders.find(params[:id])
  
     respond_to do |format|
-      if @Mushroomorder.update_attributes(params[:mushroomorder])
+      if @mushroomorder.update_attributes(params[:mushroomorder])
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@Mushroomorder.Mushroom, @Mushroomorder], :notice => 'Mushroom order was successfully updated.') }
+        format.html { redirect_to([@mushroom_order.mushroom, @mushroom_order], :notice => 'Mushroom order was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -103,10 +102,10 @@ class MushroomOrdersController < ApplicationController
   # DELETE /posts/:post_id/comments/1.xml
   def destroy
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:Mushroom_id])
+    @mushroom = Mushroom.find(params[:Mushroom_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @Mushroomorder = mushroom.mushroom_order.find(params[:id])
-    @Mushroomorder.destroy
+    @mushroom_order = @mushroom.mushroom_orders.find(params[:id])
+    @mushroom_order.destroy
  
     respond_to do |format|
       #1st argument reference the path /posts/:post_id/comments/

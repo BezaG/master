@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
 <p>
   <strong>Company:</strong>
   <%= @honey_order.company %>
@@ -18,7 +17,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @honey_order.price %>
+  <%= number_to_currency(@honey_order.price) %>  
 </p>
 
 <%= link_to 'Edit', edit_honey_honey_order_path(@honey_order.honey, @honey_order) %> |

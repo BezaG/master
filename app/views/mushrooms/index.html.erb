@@ -1,6 +1,6 @@
-<h1>Listing mushrooms</h1>
+<h1 class="page-title">Mushroom Market</h1>
 
-<table>
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
      
@@ -10,23 +10,40 @@
       <th>Quantity</th>
       <th>Price</th>
       <th>Reciept</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
+      
     </tr>
   </thead>
 
   <tbody>
     <% @mushrooms.each do |mushroom| %>
       <tr>
-        
+        <% @bool = 'false' %>
         <td><%= mushroom.company %></td>
         <td><%= mushroom.location %></td>
         <td><%= mushroom.day_of_supply %></td>
         <td><%= mushroom.quantity %></td>
         <td><%= number_to_currency(mushroom.price) %></td>
         <td><%= mushroom.reciept %></td>
-        <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{mushroom.mushroom_order.count}#{"Orders"} "),mushroom_mushroom_orders_path(mushroom)  %></td>
+         <% mushroom.mushroom_orders.each do |mushroom_order| 
+            if (mushroom_order.user_id == current_user.id)
+               @bool = 'true' 
+           end %>
+        <% end %>
+        <% if can? :create, MushroomOrder %>
+          <% if @bool == 'false' %>
+              <td><%= link_to "Make Order", new_mushroom_mushroom_order_path(mushroom) %></td>
+              <% else %>
+              <td><%= link_to "Make another order", new_mushroom_mushroom_order_path(mushroom) %></td>
+          <% end %>
+        <% end %>
+         <% if @bool == 'true' %> 
+          <td><%= link_to "Your Orders", mushroom_mushroom_orders_path(mushroom) %></td>
+         <% end %>
+         
+        <% if can? :edit, mushroom %>
+           <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{mushroom.mushroom_orders.count}#{"Orders"} "),mushroom_mushroom_orders_path(mushroom)  %></td>
+        <% end %>
         <td>
           <% if can? :update, mushroom %>
           <%= link_to 'Edit', edit_mushroom_path(mushroom) %>

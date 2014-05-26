@@ -6,6 +6,6 @@ class Honey < ActiveRecord::Base
   validates_presence_of :reciept, :message => "can't be blank"
   validates_presence_of :condition, :message => "can't be blank"
 
-  has_many :honey_order
+  has_many :honey_orders
   belongs_to :user
 end

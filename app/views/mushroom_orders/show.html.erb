@@ -18,7 +18,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @mushroom_order.price %>
+  <%= number_to_currency(@mushroom_order.price) %>
 </p>
 
 <%= link_to 'Edit', edit_mushroom_mushroom_order_path(@mushroom_order.mushroom, @mushroom_order) %> |

@@ -1,4 +1,4 @@
-<h1>Listing egg_orders</h1>
+<h1>Your orders</h1>
 
 <table class="table table-bordered table-condensed table-hover">
   <thead>
@@ -7,9 +7,7 @@
       <th>Location</th>
       <th>Daily quantity</th>
       <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      
     </tr>
   </thead>
 
@@ -20,21 +18,14 @@
         <td><%= egg_order.location %></td>
         <td><%= egg_order.daily_quantity %></td>
         <td><%= number_to_currency(egg_order.price) %></td>
-        
-        <td>
-          
-          <% if can? :update, egg_order %>
-          <%= link_to 'Edit', edit_egg_egg_order_path(egg_order.egg, egg_order) %>
+        <% if can? :update, egg_order %>
+          <% if current_user.role == "buyer" %>
+            <td><%= link_to 'Edit', edit_egg_egg_order_path(egg_order.egg, egg_order) %></td>
           <% end %>
-          
-        </td> 
-        <td>
-          
-          <% if can? :delete, egg_order %>
-          <%= link_to 'Destroy', [egg_order.egg,egg_order], method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-          
-        </td>
+        <% end %>
+        <% if can? :delete, egg_order %>
+          <td><%= link_to 'Destroy', [egg_order.egg,egg_order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -1,15 +1,14 @@
 class MilkOrdersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
-  load_and_authorize_resource
+  before_filter :authenticate_user!
+  load_and_authorize_resource :milk
+  load_and_authorize_resource :milk_order, :through => :milk, :parent => false
   before_action :set_milk_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
   # GET /posts/:post_id/comments.xml
   def index
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
-    #2nd you get all the comments of this post
-    @milk_orders = milk.milk_order 
+ 
  
     respond_to do |format|
       format.html # index.html.erb
@@ -21,9 +20,9 @@ class MilkOrdersController < ApplicationController
   # GET /comments/:id.xml
   def show
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = @milk.milk_orders.find(params[:id])
      
     respond_to do |format|
       format.html # show.html.erb
@@ -35,9 +34,9 @@ class MilkOrdersController < ApplicationController
   # GET /posts/:post_id/comments/new.xml
   def new
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you build a new one
-    @milk_order = milk.milk_order.build
+    @milk_order = @milk.milk_orders.build
  
     respond_to do |format|
       format.html # new.html.erb
@@ -48,18 +47,18 @@ class MilkOrdersController < ApplicationController
   # GET /posts/:post_id/comments/:id/edit
   def edit
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = @milk.milk_orders.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
   # POST /posts/:post_id/comments.xml
   def create
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you create the comment with arguments in params[:comment]
-    @milk_order = milk.milk_order.create(milk_order_params)
+    @milk_order = @milk.milk_orders.create(milk_order_params)
     @milk_order.user = current_user   
     @milk_order.company = current_user.company_name
     
@@ -82,9 +81,9 @@ class MilkOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = @milk.milk_orders.find(params[:id])
  
     respond_to do |format|
       if @milk_order.update_attributes(params[:milkorder])
@@ -102,9 +101,9 @@ class MilkOrdersController < ApplicationController
   # DELETE /posts/:post_id/comments/1.xml
   def destroy
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = @milk.milk_orders.find(params[:id])
     @milk_order.destroy
  
     respond_to do |format|

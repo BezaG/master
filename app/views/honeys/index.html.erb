@@ -1,6 +1,6 @@
-<h1>Listing honeys</h1>
+<h1 class="page-title">Honey Market</h1>
 
-<table>
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
       
@@ -11,16 +11,15 @@
       <th>Condition</th>
       <th>Price</th>
       <th>Reciept</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
+     
     </tr>
   </thead>
 
   <tbody>
     <% @honeys.each do |honey| %>
       <tr>
-        
+        <% @bool = 'false' %>
         <td><%= honey.company %></td>
         <td><%= honey.location %></td>
         <td><%= honey.honey_type %></td>
@@ -28,8 +27,26 @@
         <td><%= honey.condition %></td>
         <td><%= number_to_currency(honey.price) %></td>
         <td><%= honey.reciept %></td>
-        <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
+        <% honey.honey_orders.each do |honey_order| 
+            if (honey_order.user_id == current_user.id)
+               @bool = 'true' 
+           end %>
+        <% end %>
+        <% if can? :create, HoneyOrder %>
+          <% if @bool == 'false' %>
+            <td><%= link_to "Make Order", new_honey_honey_order_path(honey) %></td>
+          <% else %>
+            <td><%= link_to "Make another Order", new_honey_honey_order_path(honey) %></td>
+          <% end %>
+        <% end %>
+        <% if @bool == 'true' %> 
+         <td><%= link_to "Your Orders", honey_honey_orders_path(honey) %></td>
+        <% end %> 
+        
+        <% if can? :edit, honey %>
+        <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_orders.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
         <td>
+          <% end %>
           <% if can? :update, honey %>
           <%= link_to 'Edit', edit_honey_path(honey) %>
           <% end %>

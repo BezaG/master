@@ -1,5 +1,5 @@
 class EggsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
   load_and_authorize_resource 
   
 
@@ -7,6 +7,8 @@ class EggsController < ApplicationController
   # GET /eggs.json
   def index
     @eggs = Egg.all
+    @bool ||= 'false'
+
   end
 
   # GET /eggs/1

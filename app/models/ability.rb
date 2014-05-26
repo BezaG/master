@@ -10,69 +10,48 @@ class Ability
      elsif user.role == "buyer"
       
       can :read, Egg
-      can :update, EggOrder, :user_id => user.id
-      can :delete, EggOrder, :user_id => user.id
-      can [:create,:read], HoneyOrder
+      can :create, EggOrder
+      can [:update,:read,:delete], EggOrder, :user_id => user.id
+      
       can :read, Honey
-      can :update, HoneyOrder do |honey_order|
-        honey_order.try(:user) == user 
-      end
-      can :delete, HoneyOrder do |honey_order|
-        honey_order.try(:user) == user 
-      end
-      can [:create,:read], MilkOrder
+      can :create, HoneyOrder
+      can [:update, :delete, :read], HoneyOrder, :user_id => user.id
+      
       can :read, Milk
-      can :update, MilkOrder do |milk_order|
-        milk_order.try(:user) == user 
-      end
-      can :delete, MilkOrder do |milk_order|
-        milk_order.try(:user) == user 
-      end
-      can [:create,:read], MushroomOrder
+      can :create, MilkOrder
+      can [:update, :delete, :read], MilkOrder, :user_id => user.id
+
       can :read, Mushroom
-      can :update, MushroomOrder do |mushroom_order|
-        mushroom_order.try(:user) == user 
-      end
-      can :delete, MushroomOrder do |mushroom_order|
-        mushroom_order.try(:user) == user 
-      end
+      can :create, MushroomOrder
+      can [:update, :delete, :read], MushroomOrder, :user_id => user.id
+     
     
       
-    elsif user.role == "seller"
+     elsif user.role == "seller"
+
       can [ :read, :create ], Egg
       can [:read, :update ], EggOrder, :egg => { :user_id => user.id }
-      can :update, Egg do |egg|
-        egg.try(:user) == user 
-      end
-      can :delete, Egg do |egg|
-        egg.try(:user) == user
-      end
+      can [:update,:delete], Egg, :user_id => user.id
+      
       can [:create,:read], Honey
-      can [:read, :update ], HoneyOrder
-      can :update, Honey do |honey|
-        honey.try(:user) == user 
-      end
-      can :delete, Honey do |honey|
-        honey.try(:user) == user 
-      end
+      can [:read, :update], HoneyOrder, :honey => { :user_id => user.id }
+      can [:update,:delete], Honey, :user_id => user.id
+      
       can [:create,:read], Milk
       can [:read, :update ], MilkOrder
-      can :update, Milk do |milk|
-        milk.try(:user) == user 
-      end
-      can :delete, Milk do |milk|
-        milk.try(:user) == user 
-      end
-        can [:create,:read], Mushroom
+      can [:update,:delete], Milk, :user_id => user.id
+     
+      can [:create,:read], Mushroom
       can [:read, :update ], MushroomOrder
-      can :update, Mushroom do |mushroom|
-        mushroom.try(:user) == user 
-      end
-      can :delete, Mushroom do |mushroom|
-        mushroom.try(:user) == user 
-      end
+      can [:update,:delete], Mushroom, :user_id => user.id
+     
     else
-      can :read, :egg;
+
+      can :read, Egg
+      can :read, Honey
+      can :read, Milk
+      can :read, Mushroom
+      
     end
   
 

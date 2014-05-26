@@ -1,15 +1,13 @@
 class HoneyOrdersController < ApplicationController
- before_filter :authenticate_user!, :except => [:index]
- load_and_authorize_resource
+ before_filter :authenticate_user!
+ load_and_authorize_resource :honey
+ load_and_authorize_resource :honey_order, :through => :honey, :parent => false
  before_action :set_honey_order, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:post_id/comments
   # GET /posts/:post_id/comments.xml
   def index
-    #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
-    #2nd you get all the comments of this post
-    @honey_orders = honey.honey_order 
+   
  
     respond_to do |format|
       format.html # index.html.erb
@@ -21,9 +19,7 @@ class HoneyOrdersController < ApplicationController
   # GET /comments/:id.xml
   def show
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
-    #2nd you retrieve the comment thanks to params[:id]
-    @honey_order = honey.honey_order.find(params[:id])
+  @honey_order_count = @honey.honey_orders.count('user_id', :value => current_user.id)
      
     respond_to do |format|
       format.html # show.html.erb
@@ -35,9 +31,9 @@ class HoneyOrdersController < ApplicationController
   # GET /posts/:post_id/comments/new.xml
   def new
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
+    @honey = Honey.find(params[:honey_id])
     #2nd you build a new one
-    @honey_order = honey.honey_order.build
+    @honey_order = @honey.honey_orders.build
  
     respond_to do |format|
       format.html # new.html.erb
@@ -48,18 +44,18 @@ class HoneyOrdersController < ApplicationController
   # GET /posts/:post_id/comments/:id/edit
   def edit
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
+    @honey = Honey.find(params[:honey_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @honey_order = honey.honey_order.find(params[:id])
+    @honey_order = @honey.honey_orders.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
   # POST /posts/:post_id/comments.xml
   def create
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
+    @honey = Honey.find(params[:honey_id])
     #2nd you create the comment with arguments in params[:comment]
-    @honey_order = honey.honey_order.create(honey_order_params)
+    @honey_order = @honey.honey_orders.create(honey_order_params)
     @honey_order.user = current_user
     @honey_order.company = current_user.company_name
    
@@ -69,9 +65,9 @@ class HoneyOrdersController < ApplicationController
     respond_to do |format|
       if @honey_order.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@honey_order.honey, @Honeyorder], :notice => 'An Honey order was successfully created.') }
+        format.html { redirect_to([@honey_order.honey, @honey_order], :notice => 'An Honey order was successfully created.') }
         #the key :location is associated to an array in order to build the correct route to the nested resource comment
-        format.xml  { render :xml => @honey_order, :status => :created, :location => [@Honeyorder.honey, @Honeyorder] }
+        format.xml  { render :xml => @honey_order, :status => :created, :location => [@honey_order.honey, @honey_order] }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @honey_order.errors, :status => :unprocessable_entity }
@@ -83,9 +79,9 @@ class HoneyOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
+    @honey = Honey.find(params[:honey_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @Honeyorder = honey.honey_order.find(params[:id])
+    @Honeyorder = @honey.honey_orders.find(params[:id])
  
     respond_to do |format|
       if @Honeyorder.update_attributes(params[:honeyorder])
@@ -103,9 +99,9 @@ class HoneyOrdersController < ApplicationController
   # DELETE /posts/:post_id/comments/1.xml
   def destroy
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:Honey_id])
+    @honey = Honey.find(params[:Honey_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @Honeyorder = honey.honey_order.find(params[:id])
+    @Honeyorder = @honey.honey_orders.find(params[:id])
     @Honeyorder.destroy
  
     respond_to do |format|

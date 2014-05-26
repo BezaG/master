@@ -24,7 +24,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = @egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_orders.find(params[:id])
     @eggs = Egg.find(:all)
  
     respond_to do |format|
@@ -39,7 +39,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     @egg = Egg.find(params[:egg_id])
     #2nd you build a new one
-    @eggorder = @egg.egg_order.build
+    @eggorder = @egg.egg_orders.build
  
     respond_to do |format|
       format.html # new.html.erb
@@ -52,7 +52,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = @egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_orders.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
@@ -61,7 +61,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     @egg = Egg.find(params[:egg_id])
     #2nd you create the comment with arguments in params[:comment]
-    @eggorder = @egg.egg_order.create(egg_order_params)
+    @eggorder = @egg.egg_orders.create(egg_order_params)
     @eggorder.user = current_user
     @eggorder.company = current_user.company_name
     
@@ -87,7 +87,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = @egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_orders.find(params[:id])
  
     respond_to do |format|
       if @eggorder.update_attributes(params[:eggorder])
@@ -107,7 +107,7 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = @egg.egg_order.find(params[:id])
+    @eggorder = @egg.egg_orders.find(params[:id])
     @eggorder.destroy
  
     respond_to do |format|

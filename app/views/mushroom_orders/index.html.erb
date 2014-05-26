@@ -1,6 +1,6 @@
-<h1>Listing mushroom_orders</h1>
+<h1>Your mushroom orders</h1>
 
-<table>
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
       
@@ -9,9 +9,8 @@
       <th>Location</th>
       <th>Quantity</th>
       <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
+      
     </tr>
   </thead>
 
@@ -23,16 +22,14 @@
         <td><%= mushroom_order.location %></td>
         <td><%= mushroom_order.quantity %></td>
         <td><%= number_to_currency(mushroom_order.price) %></td>
-        <td>
-          <% if can? :update, mushroom_order %>
-          <%= link_to 'Edit', edit_mushroom_mushroom_order_path(mushroom_order.mushroom, mushroom_order) %>
+        
+        <% if can? :update, mushroom_order %>
+          <td><%= link_to 'Edit', edit_mushroom_mushroom_order_path(mushroom_order.mushroom, mushroom_order) %></td>
           <% end %>
-        </td>
-        <td>
-          <% if can? :delete, mushroom_order %>
-          <%= link_to 'Destroy', [mushroom_order.mushroom, mushroom_order], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if can? :delete, mushroom_order %>
+        <td><%= link_to 'Destroy', [mushroom_order.mushroom, mushroom_order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
-        </td>
+        
       </tr>
     <% end %>
   </tbody>

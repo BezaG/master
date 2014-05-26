@@ -17,15 +17,31 @@
   <tbody>
     <% @eggs.each do |egg| %>
       <tr class="tbl-text">
-        
+        <% @bool = 'false' %>
         <td><div style="font-size:16px;" style = "font-family: 'Palatino';" class="company_decorator"><b><i><%= egg.company %></i></b></div></td>
         <td><%= egg.location %></td>
         <td><%= egg.type_of_egg %></td>
         <td><%= egg.daily_quantity %></td>
         <td class="tbl-text"><%= number_to_currency(egg.price) %></td>
         <td><%= egg.reciept %></td>
+     
+        <% egg.egg_orders.each do |egg_order| 
+            if (egg_order.user_id == current_user.id)
+               @bool = 'true' 
+           end %>
+        <% end %>
+        <% if can? :create, EggOrder %>
+          <% if @bool == 'false' %>
+            <td><%= link_to "Make Order", new_egg_egg_order_path(egg) %></td>
+          <% else %>
+            <td><%= link_to "Make another Order", new_egg_egg_order_path(egg) %></td>
+          <% end %>
+        <% end %>
+        <% if @bool == 'true' %> 
+         <td><%= link_to "Your Orders", egg_egg_orders_path(egg) %></td>
+        <% end %> 
         <% if can? :edit, egg %>
-       <td> <b><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_orders.count}#{" Orders"} "),egg_egg_orders_path(egg), :class => "btn btn-mini btn-primary"  %></b></td>
+          <td> <b><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_orders.count}#{" Orders"} "),egg_egg_orders_path(egg), :class => "btn btn-mini btn-primary"  %></b></td>
         <% end %>
           <% if can? :update, egg %>
           <td><%= link_to 'Edit', edit_egg_path(egg) %></td>

@@ -18,7 +18,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @milk_order.price %>
+  <%= number_to_currency(@milk_order.price) %>
 </p>
 
 <%= link_to 'Edit', edit_milk_milk_order_path(@milk_order.milk, @milk_order) %> |
