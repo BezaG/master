@@ -2,9 +2,12 @@ class EggOrdersController < ApplicationController
   before_filter :authenticate_user!
    
   load_and_authorize_resource :egg
-  load_and_authorize_resource :egg_order, :through => :egg, :parent => false
-  before_action :set_egg_order, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :egg_order, :through => :egg, :parent => false, :except =>"some_action", :except =>"show"
 
+  skip_authorize_resource :only => :some_action  
+  
+
+  
   # GET /posts/:post_id/comments
   # GET /posts/:post_id/comments.xml
   def index
@@ -24,8 +27,8 @@ class EggOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = @egg.egg_orders.find(params[:id])
-    @eggs = Egg.find(:all)
+    
+    @egg_order = @egg.egg_orders.find(params[:id])
  
     respond_to do |format|
       format.html # show.html.erb
@@ -64,6 +67,7 @@ class EggOrdersController < ApplicationController
     @eggorder = @egg.egg_orders.create(egg_order_params)
     @eggorder.user = current_user
     @eggorder.company = current_user.company_name
+    @eggorder.accepted = 'no' 
     
   
 
@@ -117,16 +121,31 @@ class EggOrdersController < ApplicationController
     end
   end
 
+  def some_action
+    authorize! :show_polls_for, Egg
+    authorize! :some_action
+    
+    flash[:error] = "You must be logged in to access this section"
+
+    # Update your database here
+    @egg = Egg.find(params[:egg_id])
+    #2nd you retrieve the comment thanks to params[:id]
+    @eggorder = @egg.egg_orders.find(params[:id])
+
+    @eggorder.accepted = "yes"
+    
+    respond_to do |format|
+      format.js { render 'index' }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_egg_order
-      @egg_order = EggOrder.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def egg_order_params
-      params.require(:egg_order).permit(:user_id, :company, :location, :price, :daily_quantity)
+      params.require(:egg_order).permit(:user_id, :company, :location, :price, :daily_quantity, :accepted)
     end
   end
 

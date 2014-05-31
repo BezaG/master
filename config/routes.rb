@@ -16,8 +16,13 @@ root :to => 'static_pages#welcome'
 
 
   resources :eggs do
-    resources :egg_orders
+    resources :egg_orders 
   end
+ 
+   
+  
+ 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

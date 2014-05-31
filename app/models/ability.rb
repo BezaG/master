@@ -12,6 +12,7 @@ class Ability
       can :read, Egg
       can :create, EggOrder
       can [:update,:read,:delete], EggOrder, :user_id => user.id
+
       
       can :read, Honey
       can :create, HoneyOrder
@@ -29,8 +30,11 @@ class Ability
       
      elsif user.role == "seller"
 
+
       can [ :read, :create ], Egg
       can [:read, :update ], EggOrder, :egg => { :user_id => user.id }
+      can [:some_action],  EggOrder , :egg => { :user_id => user.id }
+      can :show_polls_for, EggOrder, :egg => { :user_id => user.id }
       can [:update,:delete], Egg, :user_id => user.id
       
       can [:create,:read], Honey

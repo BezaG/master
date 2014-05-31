@@ -7,6 +7,7 @@
       <th>Location</th>
       <th>Daily quantity</th>
       <th>Price</th>
+      <th>Accepted</td>
       
     </tr>
   </thead>
@@ -18,11 +19,13 @@
         <td><%= egg_order.location %></td>
         <td><%= egg_order.daily_quantity %></td>
         <td><%= number_to_currency(egg_order.price) %></td>
-        <% if can? :update, egg_order %>
-          <% if current_user.role == "buyer" %>
+        <td><%= egg_order.accepted %></td>
+
+        <% if current_user.role == "seller" %>
             <td><%= link_to 'Edit', edit_egg_egg_order_path(egg_order.egg, egg_order) %></td>
-          <% end %>
+            <td><%= link_to 'show', egg_egg_order_path(egg_order.egg, egg_order) %></td>
         <% end %>
+
         <% if can? :delete, egg_order %>
           <td><%= link_to 'Destroy', [egg_order.egg,egg_order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
@@ -36,3 +39,4 @@
 <% if can? :create, @egg.egg_orders.build %>
 <%= link_to 'New Egg order', new_egg_egg_order_path %>
 <% end %>
+<div id="count"></div>

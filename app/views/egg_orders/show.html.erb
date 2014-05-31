@@ -19,7 +19,12 @@
   <strong>Price:</strong>
   <%= number_to_currency(@egg_order.price) %>
 </p>
+<p>
+  <strong>Accepted:</strong>
+  <%= best_in_place @egg_order,:accepted, :path => egg_egg_orders_path %>
+</p>
+
 
 <%= link_to 'Ok', eggs_path %>
 <%= link_to 'Edit', edit_egg_egg_order_path(@egg_order.egg,@eggorder) %> |
-<%= link_to 'Back', egg_egg_orders_path(@eggorder.egg) %>
+
