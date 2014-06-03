@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520162444) do
+ActiveRecord::Schema.define(version: 20140603152339) do
 
   create_table "egg_orders", force: true do |t|
     t.integer  "user_id"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140520162444) do
     t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "accepted"
+    t.boolean  "accept"
   end
 
   create_table "eggs", force: true do |t|

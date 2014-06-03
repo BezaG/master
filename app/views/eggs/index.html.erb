@@ -18,12 +18,12 @@
 
   <tbody>
     <% @eggs.each do |egg| %>
-      <tr>
+      <tr class="row_class">
         
         <td><%= egg.company %></td>
         <td><%= egg.location %></td>
         <td><%= egg.type_of_egg %></td>
-        <td><%= egg.daily_quantity %></td>
+        <td><%= best_in_place egg, :daily_quantity %></td>
         <td><%= number_to_currency(egg.price) %></td>
         <td><%= egg.reciept %></td>
        <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_order.count}#{"Orders"} "),egg_egg_orders_path(egg)  %></td>

@@ -1,4 +1,5 @@
 class EggOrdersController < ApplicationController
+  
   before_filter :authenticate_user!, :except => [:index]
   load_and_authorize_resource
   before_action :set_egg_order, only: [:show, :edit, :update, :destroy]
@@ -10,25 +11,22 @@ class EggOrdersController < ApplicationController
     egg = Egg.find(params[:egg_id])
     #2nd you get all the comments of this post
     @egg_orders = egg.egg_order 
- 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @eggorders }
-    end
+
+    
   end
  
   # GET /posts/:post_id/comments/:id
   # GET /comments/:id.xml
   def show
     #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
+    @egg = Egg.find(params[:egg_id])
     #2nd you retrieve the comment thanks to params[:id]
     @eggorder = egg.egg_order.find(params[:id])
-    @eggs = Egg.find(:all)
+    
  
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @eggorder }
+      format.json  { render json: "show" }
     end
   end
  
@@ -42,7 +40,7 @@ class EggOrdersController < ApplicationController
  
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @eggorder }
+      format.json  { render action: "new" }
     end
   end
  
@@ -65,17 +63,15 @@ class EggOrdersController < ApplicationController
     @eggorder.company = current_user.company_name
     
   
-
- 
     respond_to do |format|
       if @eggorder.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
         format.html { redirect_to([@eggorder.egg, @eggorder], :notice => 'An egg order was successfully created.') }
         #the key :location is associated to an array in order to build the correct route to the nested resource comment
-        format.xml  { render :xml => @eggorder, :status => :created, :location => [@eggorder.egg, @eggorder] }
+        format.json  { render action: "show", status: :created, location: [@eggorder.egg, @eggorder] }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @eggorder.errors, :status => :unprocessable_entity }
+        format.html { render action:  "new" }
+        format.xml  { render :xml => @eggorder.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -83,19 +79,18 @@ class EggOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id
   # PUT /posts/:post_id/comments/:id.xml
   def update
-    #1st you retrieve the post thanks to params[:post_id]
-    egg = Egg.find(params[:egg_id])
-    #2nd you retrieve the comment thanks to params[:id]
-    @eggorder = egg.egg_order.find(params[:id])
- 
+    @egg = Egg.find(params[:egg_id])
+    @egg.daily_quantity = (@egg.daily_quantity - @egg_order.daily_quantity)
+    @egg.save
+    
     respond_to do |format|
-      if @eggorder.update_attributes(params[:eggorder])
+      if @egg_order.update(egg_order_params)
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@eggorder.egg, @eggorder], :notice => 'Egg order was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to @egg_order, :notice => 'Egg order was successfully updated.' }
+        format.json  { head :no_content }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @eggorder.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @egg_order.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -117,6 +112,7 @@ class EggOrdersController < ApplicationController
   end
 
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_egg_order
@@ -125,7 +121,7 @@ class EggOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def egg_order_params
-      params.require(:egg_order).permit(:user_id, :company, :location, :price, :daily_quantity)
+      params.require(:egg_order).permit(:user_id, :company, :location, :price, :daily_quantity, :accepted)
     end
   end
 

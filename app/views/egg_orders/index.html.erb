@@ -8,7 +8,7 @@
       <th>Location</th>
       <th>Daily quantity</th>
       <th>Price</th>
-      <th></th>
+      <th>Accepted</th>
       <th></th>
       <th></th>
     </tr>
@@ -23,6 +23,7 @@
         <td><%= egg_order.location %></td>
         <td><%= egg_order.daily_quantity %></td>
         <td><%= number_to_currency(egg_order.price) %></td>
+        <td><%= best_in_place [egg_order.egg,egg_order], :accepted,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"] %></td>
         
         <td>
           <% if can? :update, egg_order %>

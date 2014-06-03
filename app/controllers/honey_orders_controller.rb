@@ -11,10 +11,6 @@ class HoneyOrdersController < ApplicationController
     #2nd you get all the comments of this post
     @honey_orders = honey.honey_order 
  
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @Honeyorders }
-    end
   end
  
   # GET /posts/:post_id/comments/:id
@@ -27,7 +23,7 @@ class HoneyOrdersController < ApplicationController
      
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @honey_order }
+      format.json  { render json: "show" }
     end
   end
  
@@ -41,7 +37,7 @@ class HoneyOrdersController < ApplicationController
  
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @Honeyorder }
+      format.json  { render json: "new" }
     end
   end
  
