@@ -7,8 +7,6 @@ class CreateEggOrders < ActiveRecord::Migration
       t.string :location
       t.integer :daily_quantity
       t.decimal :price
-      t.boolean  :accept, :default => false
-
       t.timestamps
     end
   end

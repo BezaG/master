@@ -77,6 +77,6 @@ class EggsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def egg_params
-      params.require(:egg).permit(:user_id, :company, :tel, :location, :type_of_egg, :daily_quantity,  :price, :reciept)
+      params.require(:egg).permit(:user_id, :company, :location, :type_of_egg, :daily_quantity,  :price, :reciept)
     end
 end

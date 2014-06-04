@@ -26,7 +26,7 @@
         <td><%= best_in_place egg, :daily_quantity %></td>
         <td><%= number_to_currency(egg.price) %></td>
         <td><%= egg.reciept %></td>
-       <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_order.count}#{"Orders"} "),egg_egg_orders_path(egg)  %></td>
+       <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{egg.egg_orders.count}#{"Orders"} "),egg_egg_orders_path(egg)  %></td>
         <td>
           <% if can? :update, egg %>
           <%= link_to 'Edit', edit_egg_path(egg) %>
