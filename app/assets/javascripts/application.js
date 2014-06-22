@@ -16,3 +16,4 @@
 //= require best_in_place.purr
 //= require turbolinks
 //= require_tree .
+

@@ -79,17 +79,31 @@ class EggOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     @egg = Egg.find(params[:egg_id])
-    @egg.daily_quantity = (@egg.daily_quantity - @egg_order.daily_quantity)
+
+    @eggorder = @egg.egg_orders.find(params[:id])
+    if @eggorder.accepted == TRUE
+     @egg.daily_quantity = (@egg.daily_quantity - @egg_order.daily_quantity)
+   else
+      @egg.daily_quantity = (@egg.daily_quantity + @egg_order.daily_quantity)
+    end
+    
+    
     @egg.save
     
     respond_to do |format|
-      if @egg_order.update(egg_order_params)
+      if @eggorder.update(egg_order_params)
+     
+        format.html { redirect_to egg_eggorders_url, :notice => 'Egg order was successfully updated.' }
+        format.json  { head :ok }
+        
+        
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to @egg_order, :notice => 'Egg order was successfully updated.' }
-        format.json  { head :no_content }
+        
+        
       else
+        
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @egg_order.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @eggorder.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -24,16 +24,16 @@
     <%= f.hidden_field :company %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.label :location %>
+    <%= f.select :location, options_for_select(%w[Bole Yeka Kirkos Arada Gulele Nifas_Silk_Lafto Addis_Ketema Akaki Ledeta Lafto]) %>
   </div>
   <div class="field">
-    <%= f.label :daily_quantity %><br>
+    <%= f.label :daily_quantity %>
     <%= f.number_field :daily_quantity %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.label :price %>
+    <%= f.text_field :price, :placeholder => @eggorder.egg.price %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,3 +1,7 @@
+<div class = "adjust">
+  <%= render 'index' %>
+</div>
+
 <h1>Listing egg_orders</h1>
 
 <table>
@@ -23,7 +27,14 @@
         <td><%= egg_order.location %></td>
         <td><%= egg_order.daily_quantity %></td>
         <td><%= number_to_currency(egg_order.price) %></td>
-        <td><%= best_in_place [egg_order.egg,egg_order], :accepted,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"] %></td>
+        <% @egg_ordered = egg_order %>
+        <% if can? :update, @egg_ordered  %>
+        <% if current_user.role == "seller" %>
+
+        <td><span style='font-size: 1.75em;'><%= best_in_place [@egg_ordered.egg,@egg_ordered], :accepted, :type => :checkbox, 
+    :collection => [raw("<i class='icon-check-empty'></i>"), raw("<i class='icon-check'></i>")] %></span></td>
+    <% end %>
+    <% end %>
         
         <td>
           <% if can? :update, egg_order %>

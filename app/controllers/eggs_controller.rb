@@ -48,10 +48,11 @@ class EggsController < ApplicationController
   # PATCH/PUT /eggs/1
   # PATCH/PUT /eggs/1.json
   def update
+    
     respond_to do |format|
       if @egg.update(egg_params)
-        format.html { redirect_to @egg, notice: 'Egg was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to eggs_url, notice: 'Egg was successfully updated.' }
+        format.json { respond_with_bip(@egg) }
       else
         format.html { render action: 'edit' }
         format.json { render json: @egg.errors, status: :unprocessable_entity }
