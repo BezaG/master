@@ -76,10 +76,16 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <h1 class="nav-title"> Markets </h1>
+            <ul class="nav-space">
+            <li><%= image_tag "egg.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Egg", eggs_path, :class => "btn btn-large btn-circle"  %></li></br></br>
+                
+                
+                <li><%= image_tag "honey.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Honey", honeys_path, :class => "btn btn-large btn-circle "  %></li></br></br>
+                <li><%= image_tag "milk.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Milk", milks_path, :class => "btn btn-large btn-circle"  %></li></br></br>
+                <li><%= image_tag "mushroom.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Mushroom", mushrooms_path, :class => "btn btn-large btn-circle "  %></li></br>
+             </ul>
+                    <div class="nav-title">    Others are coming soon...</div>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
