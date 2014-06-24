@@ -26,3 +26,142 @@
   background-color: #FCC;
 
 }
+     * {
+margin: 0;
+}
+
+html, body {
+height: 100%;
+}
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}
+.footer, .push {
+height: 4em;
+}
+body {
+  padding: 0;
+  background: #3B240B;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #BBBBBB;
+}
+#menu {
+  float: left;
+  width: 860px;
+  height: 54px;
+  padding-left: 10px;
+  background: url('img01.jpg') no-repeat left top;
+}
+
+#menu ul {
+  margin: 0;
+  padding: 0px 0 0 0px;
+  list-style: none;
+  line-height: normal;
+}
+
+#menu li {
+  display: block;
+  float: left;
+}
+
+#menu a {
+  display: block;
+  float: left;
+  margin-right: 3px;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: lowercase;
+  font: 13px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #FFFFFF;
+}
+
+#menu a:hover { 
+  text-decoration: none; 
+  color: #48ACDE;
+}
+
+#menu .current_page_item a {
+  color: #48ACDE;
+}
+
+/** LOGO */
+
+
+
+.btn-circle {
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 16px;
+  line-height: 3;
+  border-radius: 25px;
+}
+
+.cor {
+    border-radius: 100%;
+    width: 100px;
+    height: 60px;
+    line-height: 3;
+}
+.egg-color{
+  background-color: red;
+}
+.span-color {
+  background-color: #08088A;
+}
+.span-height {
+  height: 550px;
+}
+.egg-pic {
+  background-image: url('honey.jpg');
+  background-position: center;
+}
+html { 
+  background: url('honey.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+#navigation .navlinks li a:hover {
+  text-decoration: none;
+  color: #444;
+  background: #fcfcfc;
+}
+
+.stretch{
+/* Will stretch to specified width/height */
+  background-size: 500px 500px;
+}
+
+
+.tbl-text {
+  font-size: 20px;
+}
+.nav-bg { 
+  background-image: asset_path('images/Blue Abstract Vector Background.jpg'); 
+  background-size: cover;
+  background-position: center;
+}
+.nav-space {
+  padding-top: 40px;
+}
+.nav-bor {
+  border-radius: 50px;
+}
+.nav-title {
+  padding-left: 45px;
+}
+.page-title {
+  padding-left: 225px;
+}
+.tbl-header {
+  font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
