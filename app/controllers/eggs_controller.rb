@@ -7,6 +7,7 @@ class EggsController < ApplicationController
   # GET /eggs.json
   def index
     @eggs = Egg.all
+    
   end
 
   # GET /eggs/1

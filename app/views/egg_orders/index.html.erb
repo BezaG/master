@@ -2,19 +2,22 @@
   <%= render 'index' %>
 </div>
 
-<h1>Listing egg_orders</h1>
+<h1>List of orders</h1>
 
-<table>
+<table class="table table-bordered table-condensed">
   <thead>
     <tr>
-      <th>userid</td>
-      <th>Company</th>
+      
+      <% if current_user.role == 'seller'%>
+        <th>Company</th>
+      <% end %>
       <th>Location</th>
       <th>Daily quantity</th>
       <th>Price</th>
-      <th>Accepted</th>
-      <th></th>
-      <th></th>
+      <% if current_user.role == "seller" %>
+        <th>Accepted</th>
+      <% end %>
+      
     </tr>
   </thead>
 
@@ -22,22 +25,23 @@
     <% @egg_orders.each do |egg_order| %>
       <tr>
         
-        <td><%= egg_order.user_id %></td>
+        <% if can? :update, egg_order and current_user.role == 'seller'%>
         <td><%= egg_order.company %></td>
+        <% elsif current_user.role == "seller" %>
+        <td class="blank"></td>
+        <% end %>
         <td><%= egg_order.location %></td>
         <td><%= egg_order.daily_quantity %></td>
         <td><%= number_to_currency(egg_order.price) %></td>
         <% @egg_ordered = egg_order %>
-        <% if can? :update, @egg_ordered  %>
-        <% if current_user.role == "seller" %>
-
+        <% if can? :update, @egg_ordered and current_user.role == "seller"  %>
         <td><span style='font-size: 1.75em;'><%= best_in_place [@egg_ordered.egg,@egg_ordered], :accepted, :type => :checkbox, 
-    :collection => [raw("<i class='icon-check-empty'></i>"), raw("<i class='icon-check'></i>")] %></span></td>
-    <% end %>
-    <% end %>
-        
+          :collection => [raw("<i class='icon-check-empty'></i>"), raw("<i class='icon-check'></i>")] %></span></td>
+        <% elsif current_user.role == "seller" %>
+        <td class="blank"></td>
+        <% end %>
         <td>
-          <% if can? :update, egg_order %>
+          <% if can? :update, egg_order and current_user.role == "buyer" %>
           <%= link_to 'Edit', edit_egg_egg_order_path(egg_order.egg, egg_order) %>
           <% end %>
         </td>

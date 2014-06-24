@@ -43,7 +43,10 @@ class Ability
       
     elsif user.role == "seller"
       can [ :read, :create ], Egg
-      can [:read, :update ], EggOrder
+      can [:read], EggOrder
+      can [:update ], EggOrder do |egg_order|
+        egg_order.egg.user_id == user.id
+      end
       can :update, Egg do |egg|
         egg.try(:user) == user
       end
