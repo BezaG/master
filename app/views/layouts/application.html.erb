@@ -36,9 +36,9 @@
 
    
   </head>
-  <body>
+  <body class = "bodyclass">
 
-    <div class="navbar navbar-fluid-top">
+    <div class="navbar navbar-inverse navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -72,11 +72,9 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <h1 class="nav-title"> Markets </h1>
+        <div class="row-fluid">
+          <div class="span4 nav-bor span-height span-color contain sidebar1">
+            <h1 class="nav-title"> Markets </h1>
             <ul class="nav-space">
             <li><%= image_tag "egg.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Egg", eggs_path, :class => "btn btn-large btn-circle"  %></li></br></br>
                 
@@ -86,24 +84,22 @@
                 <li><%= image_tag "mushroom.jpg", :size => "85x75", :class => "nav-bor" %><%= link_to "Mushroom", mushrooms_path, :class => "btn btn-large btn-circle "  %></li></br>
              </ul>
                     <div class="nav-title">    Others are coming soon...</div>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-     </div> <!-- /container -->
-    <div id="footer">
-          <div class="container">
-            <div class="text-center">
-               <p>&copy; Company 2014</p>
+          </div><!--/span-->
+            <div class="span8">
+              <%= bootstrap_flash %>
+              <%= yield %>
             </div>
           </div>
-        </div>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+          <div class="push"></div>
+     </div>
+     
+    
   </body>
+    <footer>
+      <div class="container text-center" id="footer">
+        <p>&copy; Company 2012</p>
+      </div>
+    </footer>
+  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>
- 
