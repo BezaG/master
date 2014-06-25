@@ -81,10 +81,10 @@ class EggOrdersController < ApplicationController
     @egg = Egg.find(params[:egg_id])
 
     @eggorder = @egg.egg_orders.find(params[:id])
-    if @eggorder.accepted == TRUE
-     @egg.daily_quantity = (@egg.daily_quantity - @egg_order.daily_quantity)
+    if @eggorder.accepted == TRUE and current_user.role == "seller"
+     @egg.daily_quantity = (@egg.daily_quantity + @egg_order.daily_quantity)
    else
-      @egg.daily_quantity = (@egg.daily_quantity + @egg_order.daily_quantity)
+      @egg.daily_quantity = (@egg.daily_quantity - @egg_order.daily_quantity)
     end
     
     
@@ -93,7 +93,7 @@ class EggOrdersController < ApplicationController
     respond_to do |format|
       if @eggorder.update(egg_order_params)
      
-        format.html { redirect_to egg_eggorders_url, :notice => 'Egg order was successfully updated.' }
+        format.html { redirect_to ([@eggorder.egg,@eggorder]), :notice => 'Egg order was successfully updated.' }
         format.json  { head :ok }
         
         

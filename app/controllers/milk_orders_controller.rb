@@ -7,9 +7,9 @@ class MilkOrdersController < ApplicationController
   # GET /posts/:post_id/comments.xml
   def index
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you get all the comments of this post
-    @milk_orders = milk.milk_order 
+    @milk_orders = @milk.milk_orders 
  
     respond_to do |format|
       format.html # index.html.erb
@@ -23,7 +23,7 @@ class MilkOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = milk.milk_orders.find(params[:id])
      
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class MilkOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     milk = Milk.find(params[:milk_id])
     #2nd you build a new one
-    @milk_order = milk.milk_order.build
+    @milk_order = milk.milk_orders.build
  
     respond_to do |format|
       format.html # new.html.erb
@@ -50,7 +50,7 @@ class MilkOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = milk.milk_orders.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
@@ -59,7 +59,7 @@ class MilkOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     milk = Milk.find(params[:milk_id])
     #2nd you create the comment with arguments in params[:comment]
-    @milk_order = milk.milk_order.create(milk_order_params)
+    @milk_order = milk.milk_orders.create(milk_order_params)
     @milk_order.user = current_user   
     @milk_order.company = current_user.company_name
     
@@ -82,15 +82,21 @@ class MilkOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    milk = Milk.find(params[:milk_id])
+    @milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = @milk.milk_orders.find(params[:id])
+    if @milk_order.accepted == TRUE and current_user.role == "seller" 
+         @milk.daily_quantity = (@milk.daily_quantity + @milk_order.daily_quantity)
+      elsif current_user.role == "seller"
+          @milk.daily_quantity = (@milk.daily_quantity - @milk_order.daily_quantity)
+    end
+      @milk.save
  
     respond_to do |format|
-      if @milk_order.update_attributes(params[:milkorder])
+      if @milk_order.update_attributes(milk_order_params)
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@milk_order.milk, @milk_order], :notice => 'Milk order was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to ([@milk_order.milk, @milk_order]), :notice => 'Milk order was successfully updated.' }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @milk_order.errors, :status => :unprocessable_entity }
@@ -104,7 +110,7 @@ class MilkOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     milk = Milk.find(params[:milk_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @milk_order = milk.milk_order.find(params[:id])
+    @milk_order = milk.milk_orders.find(params[:id])
     @milk_order.destroy
  
     respond_to do |format|
@@ -123,7 +129,7 @@ class MilkOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milk_order_params
-      params.require(:milk_order).permit(:user_id, :company, :tel, :location, :price, :milk_id, :daily_quantity)
+      params.require(:milk_order).permit(:user_id, :company, :tel, :location, :price, :milk_id, :daily_quantity, :accepted)
     end
 end
  

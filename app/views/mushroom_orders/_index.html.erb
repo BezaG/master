@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+     
+      <th>Company</th>
+      <th>Location</th>
+      <th>Day of supply</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Reciept</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+   
+      <tr>
+        
+        <td><%= @mushroom.company %></td>
+        <td><%= @mushroom.location %></td>
+        <td><%= @mushroom.day_of_supply %></td>
+        <td><%= @mushroom.quantity %></td>
+        <td><%= number_to_currency(@mushroom.price) %></td>
+        <td><%= @mushroom.reciept %></td>
+      </tr>
+    </tbody>
+  </table>

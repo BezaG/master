@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Company</th>
+      <th>Location</th>
+      <th>Honey type</th>
+      <th>Amount</th>
+      <th>Condition</th>
+      <th>Price</th>
+      <th>Reciept</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+        <td><%= @honey.company %></td>
+        <td><%= @honey.location %></td>
+        <td><%= @honey.honey_type %></td>
+        <td><%= @honey.amount %></td>
+        <td><%= @honey.condition %></td>
+        <td><%= number_to_currency(@honey.price) %></td>
+        <td><%= @honey.reciept %></td>
+      </tr>
+    </tbody>
+  </table>

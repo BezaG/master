@@ -51,7 +51,7 @@ class HoneysController < ApplicationController
     respond_to do |format|
       if @honey.update(honey_params)
         format.html { redirect_to @honey, notice: 'Honey was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip(@honey) }
       else
         format.html { render action: 'edit' }
         format.json { render json: @honey.errors, status: :unprocessable_entity }

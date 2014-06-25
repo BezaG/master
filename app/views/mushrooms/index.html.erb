@@ -26,7 +26,7 @@
         <td><%= mushroom.quantity %></td>
         <td><%= number_to_currency(mushroom.price) %></td>
         <td><%= mushroom.reciept %></td>
-        <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{mushroom.mushroom_order.count}#{"Orders"} "),mushroom_mushroom_orders_path(mushroom)  %></td>
+        <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{mushroom.mushroom_orders.count}#{"Orders"} "),mushroom_mushroom_orders_path(mushroom)  %></td>
         <td>
           <% if can? :update, mushroom %>
           <%= link_to 'Edit', edit_mushroom_path(mushroom) %>

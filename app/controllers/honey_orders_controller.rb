@@ -7,9 +7,9 @@ class HoneyOrdersController < ApplicationController
   # GET /posts/:post_id/comments.xml
   def index
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
+    @honey = Honey.find(params[:honey_id])
     #2nd you get all the comments of this post
-    @honey_orders = honey.honey_order 
+    @honey_orders = @honey.honey_orders 
  
   end
  
@@ -19,7 +19,7 @@ class HoneyOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     honey = Honey.find(params[:honey_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @honey_order = honey.honey_order.find(params[:id])
+    @honey_order = honey.honey_orders.find(params[:id])
      
     respond_to do |format|
       format.html # show.html.erb
@@ -33,7 +33,7 @@ class HoneyOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     honey = Honey.find(params[:honey_id])
     #2nd you build a new one
-    @honey_order = honey.honey_order.build
+    @honey_order = honey.honey_orders.build
  
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +46,7 @@ class HoneyOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     honey = Honey.find(params[:honey_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @honey_order = honey.honey_order.find(params[:id])
+    @honey_order = honey.honey_orders.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
@@ -55,7 +55,7 @@ class HoneyOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     honey = Honey.find(params[:honey_id])
     #2nd you create the comment with arguments in params[:comment]
-    @honey_order = honey.honey_order.create(honey_order_params)
+    @honey_order = honey.honey_orders.create(honey_order_params)
     @honey_order.user = current_user
     @honey_order.company = current_user.company_name
    
@@ -79,15 +79,21 @@ class HoneyOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    honey = Honey.find(params[:honey_id])
+    @honey = Honey.find(params[:honey_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @Honeyorder = honey.honey_order.find(params[:id])
- 
+    @honey_order = @honey.honey_orders.find(params[:id])
+      if @honey_order.accepted == TRUE and current_user.role == "seller" 
+         @honey.amount = (@honey.amount + @honey_order.amount)
+       elsif current_user.role == "seller"
+          @honey.amount = (@honey.amount - @honey_order.amount)
+      end
+      @honey.save
+    
     respond_to do |format|
-      if @Honeyorder.update_attributes(params[:honeyorder])
+      if @honey_order.update_attributes(honey_order_params)
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@Honeyorder.Honey, @Honeyorder], :notice => 'Honey order was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to ([@honey_order.honey,@honey_order]), :notice => 'Honey order was successfully updated.' }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @Honeyorder.errors, :status => :unprocessable_entity }
@@ -101,7 +107,7 @@ class HoneyOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     honey = Honey.find(params[:Honey_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @Honeyorder = honey.honey_order.find(params[:id])
+    @Honeyorder = honey.honey_orders.find(params[:id])
     @Honeyorder.destroy
  
     respond_to do |format|
@@ -120,7 +126,7 @@ class HoneyOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def honey_order_params
-      params.require(:honey_order).permit(:user_id, :company, :tel, :location, :amount, :price)
+      params.require(:honey_order).permit(:user_id, :company, :tel, :location, :amount, :price, :accepted)
     end
   end
 

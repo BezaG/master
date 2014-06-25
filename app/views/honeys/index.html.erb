@@ -1,6 +1,6 @@
 <h1>Listing honeys</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       
@@ -24,11 +24,11 @@
         <td><%= honey.company %></td>
         <td><%= honey.location %></td>
         <td><%= honey.honey_type %></td>
-        <td><%= honey.amount %></td>
+        <td><%= best_in_place honey, :amount %></td>
         <td><%= honey.condition %></td>
         <td><%= number_to_currency(honey.price) %></td>
         <td><%= honey.reciept %></td>
-        <td><%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{honey.honey_order.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
+        <td><%= link_to raw("<i class='pull-right icon-hand-up'></i> #{honey.honey_orders.count}#{"Orders"} "),honey_honey_orders_path(honey)  %></td>
         <td>
           <% if can? :update, honey %>
           <%= link_to 'Edit', edit_honey_path(honey) %>

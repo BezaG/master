@@ -31,9 +31,6 @@ class MilksController < ApplicationController
     @milk.company = current_user.company_name
     
 
-
-
-
     respond_to do |format|
       if @milk.save
         format.html { redirect_to @milk, notice: 'Milk was successfully created.' }
@@ -51,7 +48,7 @@ class MilksController < ApplicationController
     respond_to do |format|
       if @milk.update(milk_params)
         format.html { redirect_to @milk, notice: 'Milk was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip @milk }
       else
         format.html { render action: 'edit' }
         format.json { render json: @milk.errors, status: :unprocessable_entity }

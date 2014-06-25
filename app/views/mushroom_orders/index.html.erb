@@ -1,10 +1,13 @@
+<div class = "adjust">
+  <%= render 'index' %>
+</div>
 <h1>Listing mushroom_orders</h1>
 
 <table>
   <thead>
     <tr>
       
-      <th>Mushroom</th>
+      
       <th>Company</th>
       <th>Location</th>
       <th>Quantity</th>
@@ -23,8 +26,15 @@
         <td><%= mushroom_order.location %></td>
         <td><%= mushroom_order.quantity %></td>
         <td><%= number_to_currency(mushroom_order.price) %></td>
+         <% @mushroom_ordered = mushroom_order %>
+        <% if can? :update, @mushroom_ordered and current_user.role == "seller"  %>
+        <td><span style='font-size: 1.75em;'><%= best_in_place [@mushroom_ordered.mushroom,@mushroom_ordered], :accepted, :type => :checkbox, 
+          :collection => [raw("<i class='icon-check-empty'></i>"), raw("<i class='icon-check'></i>")] %></span></td>
+        <% elsif current_user.role == "seller" %>
+        <td class="blank"></td>
+        <% end %>
         <td>
-          <% if can? :update, mushroom_order %>
+          <% if can? :update, mushroom_order  and current_user.role == "buyer" %>
           <%= link_to 'Edit', edit_mushroom_mushroom_order_path(mushroom_order.mushroom, mushroom_order) %>
           <% end %>
         </td>

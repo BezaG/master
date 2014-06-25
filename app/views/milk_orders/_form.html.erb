@@ -24,8 +24,8 @@
     <%= f.hidden_field :company %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.label :location %>
+    <%= f.select :location, options_for_select(%w[Bole Yeka Kirkos Arada Gulele Nifas_Silk_Lafto Addis_Ketema Akaki Ledeta Lafto]) %>
   </div>
   <div class="field">
     <%= f.label :daily_quantity %><br>

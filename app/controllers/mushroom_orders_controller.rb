@@ -7,13 +7,13 @@ class MushroomOrdersController < ApplicationController
   # GET /posts/:post_id/comments.xml
   def index
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
+    @mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you get all the comments of this post
-    @mushroom_orders = mushroom.mushroom_order 
+    @mushroom_orders = @mushroom.mushroom_orders 
  
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @Mushroomorders }
+      format.xml  { render :xml => @mushroom_orders }
     end
   end
  
@@ -23,7 +23,7 @@ class MushroomOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @mushroom_order = mushroom.mushroom_order.find(params[:id])
+    @mushroom_order = mushroom.mushroom_orders.find(params[:id])
      
     respond_to do |format|
       format.html # show.html.erb
@@ -37,11 +37,11 @@ class MushroomOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you build a new one
-    @mushroom_order = mushroom.mushroom_order.build
+    @mushroom_order = mushroom.mushroom_orders.build
  
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @Mushroomorder }
+      format.xml  { render :xml => @mushroom_order }
     end
   end
  
@@ -50,7 +50,7 @@ class MushroomOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @mushroom_order = mushroom.mushroom_order.find(params[:id])
+    @mushroom_order = mushroom.mushroom_orders.find(params[:id])
   end
  
   # POST /posts/:post_id/comments
@@ -59,7 +59,7 @@ class MushroomOrdersController < ApplicationController
     #1st you retrieve the post thanks to params[:post_id]
     mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you create the comment with arguments in params[:comment]
-    @mushroom_order = mushroom.mushroom_order.create(mushroom_order_params)
+    @mushroom_order = mushroom.mushroom_orders.create(mushroom_order_params)
     @mushroom_order.user = current_user
     @mushroom_order.company = current_user.company_name
     
@@ -83,18 +83,24 @@ class MushroomOrdersController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    mushroom = Mushroom.find(params[:mushroom_id])
+    @mushroom = Mushroom.find(params[:mushroom_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @Mushroomorder = mushroom.mushroom_order.find(params[:id])
+    @mushroom_order = @mushroom.mushroom_orders.find(params[:id])
+    if @mushroom_order.accepted == TRUE and current_user.role == "seller" 
+         @mushroom.quantity = (@mushroom.quantity + @mushroom_order.quantity)
+       elsif current_user.role == "seller"
+          @mushroom.quantity = (@mushroom.quantity - @mushroom_order.quantity)
+      end
+      @mushroom.save
  
     respond_to do |format|
-      if @Mushroomorder.update_attributes(params[:mushroomorder])
+      if @mushroom_order.update_attributes(mushroom_order_params)
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@Mushroomorder.Mushroom, @Mushroomorder], :notice => 'Mushroom order was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to ([@mushroom_order.mushroom,@mushroom_order]), :notice => 'Mushroom order was successfully updated.' }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @Mushroomorder.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @mushroom_order.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -124,7 +130,7 @@ class MushroomOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mushroom_order_params
-      params.require(:mushroom_order).permit(:user_id, :company, :tel, :location, :quantity, :price)
+      params.require(:mushroom_order).permit(:user_id, :company, :tel, :location, :quantity, :price, :accepted)
     end
   end
 

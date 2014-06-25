@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      
+      <th>Company</th>
+      <th>Location</th>
+      <th>Daily quantity</th>
+      <th>Condition</th>
+      <th>Price</th>
+      <th>Reciept</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+     <tr>
+        
+        <td><%= @milk.company %></td>
+        <td><%= @milk.location %></td>
+        <td><%= @milk.daily_quantity %></td>
+        <td><%= @milk.condition %></td>
+        <td><%= number_to_currency(@milk.price) %></td>
+        <td><%= @milk.reciept %></td>
+      </tr>
+   </tbody>
+</table>

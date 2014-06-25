@@ -19,9 +19,13 @@
     
     <%= f.hidden_field :company %>
   </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+ <div class="field">
+    <%= f.label :location %>
+    <%= f.select :location, options_for_select(%w[Bole Yeka Kirkos Arada Gulele Nifas_Silk_Lafto Addis_Ketema Akaki Ledeta Lafto]) %>
+  </div>
+   <div class="field">
+    <%= f.label :reciept %>
+    <%= f.select :reciept, options_for_select(%w[VAT TOT None]) %>
   </div>
   <div class="field">
     <%= f.label :day_of_supply %><br>
@@ -35,10 +39,7 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
-  <div class="field">
-    <%= f.label :reciept %><br>
-    <%= f.text_field :reciept %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

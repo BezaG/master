@@ -45,3 +45,35 @@ EggOrder.delete_all
 ])
 end
 puts "egg orders seeded"
+
+Honey.delete_all
+
+ honeys = Honey.create({
+  user_id:2,
+  company: "Seller",
+  location:"Bole",
+  honey_type:"Red_Welela",
+  amount:199,
+  price:80,
+  reciept:"Vat",
+  condition:"packed"
+  })
+
+puts "honeys seeded"
+# Create some products
+HoneyOrder.delete_all
+500.times do |i|
+ HoneyOrder.create([
+  {
+    
+    honey: honeys,
+    user_id: 3,
+    company: "Buying",
+    location: "Piassa",
+    price: 100,
+    amount: 10,
+    accepted: FALSE
+  }
+])
+end
+puts "honey orders seeded"

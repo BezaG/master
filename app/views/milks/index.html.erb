@@ -26,7 +26,7 @@
         <td><%= milk.condition %></td>
         <td><%= number_to_currency(milk.price) %></td>
         <td><%= milk.reciept %></td>
-         <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{milk.milk_order.count}#{"Orders"} "),milk_milk_orders_path(milk)  %></td>
+         <td> <%= link_to raw("<i class='pull-right icon-chevron-right'></i> #{milk.milk_orders.count}#{"Orders"} "),milk_milk_orders_path(milk)  %></td>
         <td>
           <% if can? :update, milk %>
           <%= link_to 'Edit', edit_milk_path(milk) %>

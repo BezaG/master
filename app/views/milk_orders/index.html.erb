@@ -1,16 +1,21 @@
+<div class = "adjust">
+  <%= render 'index' %>
+</div>
 <h1>Listing milk_orders</h1>
 
 <table>
   <thead>
     <tr>
       
-      <th>Company</th>
+      <% if current_user.role == 'seller'%>
+        <th>Company</th>
+      <% end %>
       <th>Location</th>
       <th>Daily quantity</th>
       <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <% if current_user.role == "seller" %>
+       <th>Accepted</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -18,12 +23,23 @@
     <% @milk_orders.each do |milk_order| %>
       <tr>
        
+          <% if can? :update, milk_order and current_user.role == 'seller'%>
         <td><%= milk_order.company %></td>
+        <% elsif current_user.role == "seller" %>
+        <td class="blank"></td>
+        <% end %>
         <td><%= milk_order.location %></td>
         <td><%= milk_order.daily_quantity %></td>
         <td><%= number_to_currency(milk_order.price) %></td>
+         <% @milk_ordered = milk_order %>
+        <% if can? :update, @milk_ordered and current_user.role == "seller"  %>
+        <td><span style='font-size: 1.75em;'><%= best_in_place [@milk_ordered.milk,@milk_ordered], :accepted, :type => :checkbox, 
+          :collection => [raw("<i class='icon-check-empty'></i>"), raw("<i class='icon-check'></i>")] %></span></td>
+        <% elsif current_user.role == "seller" %>
+        <td class="blank"></td>
+        <% end %>
         <td>
-          <% if can? :update, milk_order %>
+          <% if can? :update, milk_order and current_user.role == "buyer" %>
           <%= link_to 'Edit', edit_milk_milk_order_path(milk_order.milk, milk_order) %>
           <% end %>
         </td>
